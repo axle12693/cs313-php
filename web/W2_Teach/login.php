@@ -10,7 +10,7 @@
     {
         $SESSION["hello"] = "Tester";
         header("home.php");
-        die();
+        //die();
     }
     else
     {
