@@ -17,8 +17,8 @@
     }
 ?>
     <form action="login.php" method="get">
-        <input type="button" value="Login as administrator" method="get" name="admin">
-        <input type="button" value="Login as tester" method="get" name="tester">
+        <input type="submit" value="Login as administrator" method="get" name="admin">
+        <input type="submit" value="Login as tester" method="get" name="tester">
     </form>
 </body>
 </html>
