@@ -9,7 +9,31 @@
 <body>
     <header>
         <div>Fake Company Name!</div>
-        <a href="home.php">Home</a>
-        <a href="about-us.php">About Us</a>
-        <a href="login.php">Log in</a>
+        <?php
+            if $_GET['name'] == "home.php"
+            {
+                echo("
+                <a href=\"home.php\" style=\"font-weight: bold\">Home</a>
+                <a href=\"about-us.php\">About Us</a>
+                <a href=\"login.php\">Log in</a>
+                ")
+            }
+            elseif $_GET['name'] == "about-us.php"
+            {
+                echo("
+                <a href=\"home.php\">Home</a>
+                <a href=\"about-us.php\" style=\"font-weight: bold\">About Us</a>
+                <a href=\"login.php\">Log in</a>
+                ")
+            }
+            else
+            {
+                echo("
+                <a href=\"home.php\">Home</a>
+                <a href=\"about-us.php\">About Us</a>
+                <a href=\"login.php\" style=\"font-weight: bold\">Log in</a>
+                ")
+            }
+        ?>
+
     </header>
