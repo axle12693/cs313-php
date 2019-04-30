@@ -3,14 +3,14 @@
     if (isset($_POST['admin']))
     {
         $_SESSION['hello'] = "Administrator";
-        header("home.php");
+        header("Location: home.php");
         die();
     }
     elseif (isset($_POST['tester']))
     {
-        $SESSION["hello"] = "Tester";
-        header("home.php");
-        //die();
+        $_SESSION["hello"] = "Tester";
+        header("Location: home.php");
+        die();
     }
     else
     {
