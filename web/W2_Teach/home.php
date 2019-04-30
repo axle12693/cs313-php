@@ -2,13 +2,14 @@
 <?php
     if (isset($_SESSION["hello"]))
     {
-        <p>Welcome $_SESSION["hello"];</p>
+        echo "<p>Welcome " . $_SESSION["hello"] . "</p>";
     }
     else
-    {
+    { 
+?>
         <p>Welcome. You are not logged in.</p>
+<?php
     }
 ?>
-    <p> Welcome. You are not logged in.</p>
 </body>
 </html>
