@@ -10,7 +10,7 @@
     <header>
         <div>Fake Company Name!</div>
         <?php
-            if (basename(__FILE__) == "home.php")
+            if (basename($_SERVER['PHP_SELF']) == "home.php")
             {
                 echo("
                 <a href=\"home.php\" style=\"font-weight: bold\">Home</a>
@@ -18,7 +18,7 @@
                 <a href=\"login.php\">Log in</a>
                 ");
             }
-            elseif (basename(__FILE__) == "about-us.php")
+            elseif (basename($_SERVER['PHP_SELF']) == "about-us.php")
             {
                 echo("
                 <a href=\"home.php\">Home</a>
