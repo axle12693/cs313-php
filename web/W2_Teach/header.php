@@ -10,21 +10,21 @@
     <header>
         <div>Fake Company Name!</div>
         <?php
-            if $_GET['name'] == "home.php"
+            if (basename(__FILE__) == "home.php")
             {
                 echo("
                 <a href=\"home.php\" style=\"font-weight: bold\">Home</a>
                 <a href=\"about-us.php\">About Us</a>
                 <a href=\"login.php\">Log in</a>
-                ")
+                ");
             }
-            elseif $_GET['name'] == "about-us.php"
+            elseif (basename(__FILE__) == "about-us.php")
             {
                 echo("
                 <a href=\"home.php\">Home</a>
                 <a href=\"about-us.php\" style=\"font-weight: bold\">About Us</a>
                 <a href=\"login.php\">Log in</a>
-                ")
+                ");
             }
             else
             {
@@ -32,7 +32,7 @@
                 <a href=\"home.php\">Home</a>
                 <a href=\"about-us.php\">About Us</a>
                 <a href=\"login.php\" style=\"font-weight: bold\">Log in</a>
-                ")
+                ");
             }
         ?>
 
