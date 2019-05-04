@@ -7,12 +7,14 @@
             <h2>About Machine Learning</h2>
             <div>
                 <h4>What is Machine Learning?</h3>
-                <p>Machine learning is an umbrella term for several families of statistical or other techniques 
+                <p>
+                   <img class="float-right" id="home_ML_Image" src="images/DL.png">  
+                   Machine learning is an umbrella term for several families of statistical or other techniques 
                    that can be programmed to analyze data and make predictions. In most cases, a machine 
                    learning algorithm can be looked at as a black box into which data is fed. In the beginning, 
                    the black box is "trained" on pre-existing data, and when that phase is complete, the goal 
                    is to have it able to discover patterns and/or make predictions about future data.
-                   <img class="float-right" id="home_ML_Image" src="images/DL.png"></p>
+                </p>
             </div>
             <hr>
             <div>
