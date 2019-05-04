@@ -1,5 +1,11 @@
 #header_container
 {
-    width: 640px;
+    width: 60%;
+    margin: auto;
+}
+
+#body_container
+{
+    width: 60%;
     margin: auto;
 }
