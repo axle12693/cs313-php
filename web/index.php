@@ -3,7 +3,7 @@
     </head>
     <body>
         <?php require 'header2.php'; ?>
-        <div class="body_container">
+        <div id="body_container">
             <h2>About Machine Learning</h2>
             <div>
                 <h3>What is Machine Learning?</h3>
