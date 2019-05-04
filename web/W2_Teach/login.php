@@ -12,10 +12,6 @@
         header("Location: home.php");
         die();
     }
-    else
-    {
-        echo 0;
-    }
 ?>
 <?php include("header.php") ?>
     <form action="login.php" method="post">
