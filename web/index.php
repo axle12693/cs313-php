@@ -32,6 +32,7 @@
                     <li>Discrete math optional, but useful</li>
                 </ul>
             </div>
+            <hr>
             <div>
                 <h4>Where Can I Go To Learn More?</h4>
                 <p>The David O. McKay library has plenty of books on machine learning. There are also many 
