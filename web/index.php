@@ -12,6 +12,7 @@
                    learning algorithm can be looked at as a black box into which data is fed. In the beginning, 
                    the black box is "trained" on pre-existing data, and when that phase is complete, the goal 
                    is to have it able to discover patterns and/or make predictions about future data.</p>
+                <img class="float-right" src="images/DL.png">
             </div>
             <hr>
             <div>
