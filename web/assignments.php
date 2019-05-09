@@ -3,6 +3,9 @@
 </head>
 <body>
   <?php require 'header2.php'; ?>
-  <a href="week03_teach/index.php"> Week03 Teach</a>
+  <div id="body_container">
+    <a href="week03_teach/index.php"> Week03 Teach</a><br>
+    <a href="W2_Teach/index.php">Week03 Prove</a>
+  </div>
 </body>
 </html>
