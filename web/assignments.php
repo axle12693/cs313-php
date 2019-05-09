@@ -5,7 +5,7 @@
   <?php require 'header2.php'; ?>
   <div id="body_container">
     <a href="week03_teach/index.php"> Week03 Teach</a><br>
-    <a href="W2_Prove/index.php">Week03 Prove</a>
+    <a href="W03_Prove/index.php">Week03 Prove</a>
   </div>
 </body>
 </html>
