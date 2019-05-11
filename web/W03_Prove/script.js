@@ -6,6 +6,7 @@ $(document).ready(function(){
         value: $(this).attr('id')
       },
       function(data,status){
+        data = JSON.parse(data)
         alert(data)
         style = ""
         if (data[2])
@@ -16,7 +17,7 @@ $(document).ready(function(){
         {
             "none"
         }
-        $("." + data[1]).css("border", style)
+        $("#" + data[1]).css("border", style)
       });
     });
   });
