@@ -7,5 +7,5 @@ if (!isset($_SESSION[$var]))
 }
 $value = $_POST['value'];
 $_SESSION[$var][$value] = !$_SESSION[$var][$value];
-echo($_SESSION[$var][$value]);
+echo("Var: " . $var . "<br>Value: " . $value . "<br>T/F: " . $_SESSION[$var][$value]);
 ?>
