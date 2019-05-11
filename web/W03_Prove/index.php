@@ -30,6 +30,6 @@
       </div>
     </div>
   </div>
-  <button onclick="window.location.replace('cart.php');" value="Go to Cart">
+  <button onclick="window.location.replace('cart.php');" value="Go to Cart">Go to Cart</button>
 </body>
 </html>
