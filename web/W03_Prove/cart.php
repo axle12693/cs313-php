@@ -8,6 +8,6 @@
   <div id="body_container">
     
   </div>
-  <button onclick="header(\"Location: index.php\")" value="Back to Browsing">
+  <button onclick="window.location.replace('index.php');" value="Back to Browsing">Back to Browsing</button>
 </body>
 </html>
