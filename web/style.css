@@ -15,3 +15,10 @@
     width:300px;
     height:auto;
 }
+
+.item_pic_left
+{
+    width: 300px;
+    height:auto;
+    float: left;
+}
