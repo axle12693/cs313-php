@@ -18,14 +18,14 @@
       <div class="item" id="ph" style="background-color: <?php echo($_SESSION["ItemsList"]["ph"] ? "#CCFFCC" : "#FFFFFF");  ?>">
         <p>
           <img class="item_pic_left" src="/images/phoenix.jpg">
-          <h3>Phoenix - $1,000,000</h3>
+          <h3>Phoenix - $500,000</h3>
           This is text describing a phoenix. Phoenixes are really cool!
         </p>
       </div>
       <div class="item" id="hy" style="background-color: <?php echo($_SESSION["ItemsList"]["hy"] ? "#CCFFCC" : "#FFFFFF");  ?>">
         <p>
           <img class="item_pic_left" src="/images/hydra.jpg">
-          <h3>Hydra - $1,000,000</h3>
+          <h3>Hydra - $25 0,000</h3>
           This is text describing a hydra. Hydras are really cool!
         </p>
       </div>
