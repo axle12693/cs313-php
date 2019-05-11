@@ -3,11 +3,11 @@ $(document).ready(function(){
       $.post("changeSessVar.php",
       {
         var: "ItemsList",
-        value: $(event.target).attr('name')
+        value: $(this).attr('id')
       },
       function(data,status){
         alert(data)
-        alert(event.target.id)
+        alert($(this).attr('id'))
       });
     });
   });
