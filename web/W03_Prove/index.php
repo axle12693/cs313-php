@@ -1,8 +1,8 @@
-<?php require '/header1.php'; ?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/header1.php'; ?>
     <title>Alex's House of Mythical Pets</title>
 </head>
 <body>
-  <?php require '/header2.php'; ?>
+  <?php require $_SERVER['DOCUMENT_ROOT'] . '/header2.php'; ?>
   <div id="body_container">
     <div id="items_list_container">
       <div class="item">
