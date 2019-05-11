@@ -7,7 +7,16 @@ $(document).ready(function(){
       },
       function(data,status){
         alert(data)
-        alert($(this).attr('id'))
+        style = ""
+        if (data[2])
+        {
+            "solid 1px red"
+        }
+        else
+        {
+            "none"
+        }
+        $("." + data[1]).css("border", style)
       });
     });
   });
