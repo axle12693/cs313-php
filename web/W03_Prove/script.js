@@ -7,7 +7,7 @@ $(document).ready(function(){
       },
       function(data,status){
         alert(data)
-        alert($(event.target).attr('id'))
+        alert(event.target.id)
       });
     });
   });
