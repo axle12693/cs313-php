@@ -7,5 +7,5 @@ if (!isset($_SESSION[$var]))
 }
 $value = $_POST['value'];
 $_SESSION[$var][$value] = !$_SESSION[$var][$value];
-echo(array($var, $value, $$_SESSION[$var][$value]));
+echo(json_encode(array($var, $value, $$_SESSION[$var][$value]));
 ?>
