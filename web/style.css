@@ -23,3 +23,8 @@
     float: left;
     clear: both;
 }
+
+.item_pic_left
+{
+    overflow: hidden;
+}
