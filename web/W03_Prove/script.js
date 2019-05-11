@@ -7,7 +7,7 @@ $(document).ready(function(){
       },
       function(data,status){
         alert(data)
-        alert($(event.target).attr('name'))
+        $(event.target).css("border", "1p solid red")
       });
     });
   });
