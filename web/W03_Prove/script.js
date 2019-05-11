@@ -11,11 +11,11 @@ $(document).ready(function(){
         style = ""
         if (data[2])
         {
-            "solid 1px red"
+            style = "solid 1px red"
         }
         else
         {
-            "none"
+            style = "none"
         }
         $("#" + data[1]).css("border", style)
       });
