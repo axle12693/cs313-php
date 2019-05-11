@@ -1,5 +1,6 @@
 <?php session_start(); 
 $costs = array("dr" => 1000000, "ph" => 500000, "hy"=>250000);
+$names = array("dr" => "Dragon", "ph" => "Phoenix", "hy" => "Hydra");
 ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/header1.php'; ?>
 
@@ -18,14 +19,14 @@ $costs = array("dr" => 1000000, "ph" => 500000, "hy"=>250000);
                     {
                         $total += $costs[$item];
                         echo("<tr>
-                                <td>$item</td>
-                                <td>$costs[$item]</td>
+                                <td>$names[$item]</td>
+                                <td>\$$costs[$item]</td>
                               </tr>");
                     }
                 }
                 echo("<tr>
                         <td>Total:</td>
-                        <td>$total</td>
+                        <td>\$$total</td>
                       </tr>");
             ?>
         </table>    
