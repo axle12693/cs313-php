@@ -6,8 +6,7 @@ $(document).ready(function(){
         value: $(event.target).attr('name')
       },
       function(data,status){
-        alert(data)
-        alert(event.target.attr('id'))
+        alert(data . $(event.target).attr('id'))
       });
     });
   });
