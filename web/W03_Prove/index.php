@@ -30,6 +30,6 @@
       </div>
     </div>
   </div>
-  
+  <button onclick="header(\"Location: cart.php\")" value="Go to Cart">
 </body>
 </html>

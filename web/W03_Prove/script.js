@@ -7,17 +7,17 @@ $(document).ready(function(){
       },
       function(data,status){
         data = JSON.parse(data)
-        alert(data)
+        //alert(data)
         style = ""
         if (data[2])
         {
-            style = "solid 1px red"
+            style = "#CCFFCC"
         }
         else
         {
-            style = "none"
+            style = "white"
         }
-        $("#" + data[1]).css("border", style)
+        $("#" + data[1]).css("background-color", style)
       });
     });
   });
