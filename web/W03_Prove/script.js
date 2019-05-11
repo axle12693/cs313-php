@@ -3,7 +3,7 @@ $(document).ready(function(){
       $.post("changeSessVar.php",
       {
         var: "ItemsList",
-        value: $(event.target).name()
+        value: $(event.target).attr(name)
       },
       function(data,status){
         alert(data)
