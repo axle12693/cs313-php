@@ -21,7 +21,7 @@ $names = array("dr" => "Dragon", "ph" => "Phoenix", "hy" => "Hydra");
                         echo("<tr id=\"$item\" class=\"itemtr\">
                                 <td>$names[$item]</td>
                                 <td>\$$costs[$item]</td>
-                                <td><button value=\"Remove from cart\" name=\"$item\">Remove from cart</button></td>
+                                <td><button value=\"Remove from cart\" id=\"$item\">Remove from cart</button></td>
                               </tr>");
                     }
                 }

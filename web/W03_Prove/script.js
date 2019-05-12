@@ -27,7 +27,7 @@ $(document).ready(function(){
       $.post("changeSessVar.php",
       {
         var: "ItemsList",
-        value: $(this).attr('name')
+        value: $(this).attr('id')
       },
       function(data,status){
         data = JSON.parse(data)
