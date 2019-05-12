@@ -21,3 +21,17 @@ $(document).ready(function(){
       });
     });
   });
+
+  $(document).ready(function(){
+    $(".itemtr").click(function(event){
+      $.post("changeSessVar.php",
+      {
+        var: "ItemsList",
+        value: $(this).attr('name')
+      },
+      function(data,status){
+        data = JSON.parse(data)
+        $(data[1]).css("display", "none")
+      });
+    });
+  });

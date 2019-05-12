@@ -18,9 +18,10 @@ $names = array("dr" => "Dragon", "ph" => "Phoenix", "hy" => "Hydra");
                     if ($buying)
                     {
                         $total += $costs[$item];
-                        echo("<tr>
+                        echo("<tr id=\"$item\" class=\"itemtr\">
                                 <td>$names[$item]</td>
                                 <td>\$$costs[$item]</td>
+                                <td><button value=\"Remove from cart\" name=\"$item\">Remove from cart</button></td>
                               </tr>");
                     }
                 }
