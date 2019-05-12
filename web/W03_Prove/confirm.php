@@ -1,4 +1,5 @@
-<?php session_start() ?>
+<?php session_start();
+$confirm = true;?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/header1.php'; ?>
     <script src="script.js"></script>
     <title>Alex's House of Mythical Pets</title>

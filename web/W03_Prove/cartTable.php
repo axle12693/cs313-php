@@ -11,9 +11,13 @@
             $total += $costs[$item];
             $out = $out . "<tr id=\"$item\" class=\"itemtr\">
                   <td>$names[$item]</td>
-                  <td>\$$costs[$item]</td>
-                  <td><button value=\"Remove from cart\" id=\"$item\">Remove from cart</button></td>
-                  </tr>";
+                  <td>\$$costs[$item]</td>";
+            if (!isset($confirm))
+            {
+                $out = $out . "<td><button value=\"Remove from cart\" id=\"$item\">Remove from cart</button></td>";
+            }
+                  
+            $out = $out . "</tr>";
         }
     }
     $out = $out . "<tr>
