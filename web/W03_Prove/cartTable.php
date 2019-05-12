@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $total = 0;
     $out = "";
     foreach ($_SESSION["ItemsList"] as $item => $buying)
