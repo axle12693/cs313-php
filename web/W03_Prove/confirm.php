@@ -7,7 +7,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/header2.php'; ?>
     <div id="body_container">
         <h2>Order Confirmed:</h2><br>
-        <?php require("cartTable"); ?>
+        <?php require("cartTable.php"); ?>
         <?php
             $street = htmlspecialchars($_SESSION["street"]);
             $city = htmlspecialchars($_SESSION["city"]);
