@@ -33,12 +33,11 @@ $(document).ready(function(){
         data = JSON.parse(data)
         $(this).attr("id", "a")
         $("#" + data[1]).css("display", "none")
-      });
-
-      $.post("cartTable.php",{},
-      function(data,status){
+        $.post("cartTable.php",{},
+        function(data,status){
         alert(data)
         document.getElementById("cartTable").innerHTML = data
+      });
       });
     });
   });
