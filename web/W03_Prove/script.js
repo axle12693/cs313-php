@@ -37,6 +37,7 @@ $(document).ready(function(){
 
       $.post("cartTable.php",{},
       function(data,status){
+        alert(data)
         document.getElementById("cartTable").innerHTML = data
       });
     });
