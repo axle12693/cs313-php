@@ -7,7 +7,9 @@
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/header2.php'; ?>
     <div id="body_container">
         <h2>Order Confirmed:</h2><br>
-        <?php require("cartTable.php"); ?>
+        <table>
+            <?php require("cartTable.php"); ?>
+        </table>
         <?php
             $street = htmlspecialchars($_SESSION["street"]);
             $city = htmlspecialchars($_SESSION["city"]);
@@ -15,7 +17,7 @@
             $zip = htmlspecialchars($_SESSION["zip"]);
             echo("Your order will be delived to: <br> 
                   $street
-                  $city, $state $zip")
+                  $city, $state $zip");
         ?>
     </div>
 </body>
