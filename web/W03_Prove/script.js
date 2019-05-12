@@ -32,7 +32,8 @@ $(document).ready(function(){
       function(data,status){
         data = JSON.parse(data)
         alert(data)
-        $(data[1]).css("display", "none")
+        $(this).attr("id", "a")
+        $("#" + data[1]).css("display", "none")
       });
     });
   });
