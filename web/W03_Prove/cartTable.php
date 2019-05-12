@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $costs = array("dr" => 1000000, "ph" => 500000, "hy"=>250000);
+    $names = array("dr" => "Dragon", "ph" => "Phoenix", "hy" => "Hydra");
     $total = 0;
     $out = "";
     foreach ($_SESSION["ItemsList"] as $item => $buying)
