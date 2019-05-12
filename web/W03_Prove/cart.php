@@ -1,7 +1,4 @@
-<?php session_start(); 
-$costs = array("dr" => 1000000, "ph" => 500000, "hy"=>250000);
-$names = array("dr" => "Dragon", "ph" => "Phoenix", "hy" => "Hydra");
-?>
+<?php session_start(); ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/header1.php'; ?>
 
     <script src="script.js"></script>
@@ -13,26 +10,10 @@ $names = array("dr" => "Dragon", "ph" => "Phoenix", "hy" => "Hydra");
         <table id="cartTable">
             <?php
                 require("cartTable.php");
-                // $total = 0;
-                // foreach ($_SESSION["ItemsList"] as $item => $buying)
-                // {
-                //     if ($buying)
-                //     {
-                //         $total += $costs[$item];
-                //         echo("<tr id=\"$item\" class=\"itemtr\">
-                //                 <td>$names[$item]</td>
-                //                 <td>\$$costs[$item]</td>
-                //                 <td><button value=\"Remove from cart\" id=\"$item\">Remove from cart</button></td>
-                //               </tr>");
-                //     }
-                // }
-                // echo("<tr>
-                //         <td>Total:</td>
-                //         <td>\$$total</td>
-                //       </tr>");
             ?>
         </table>    
         <button onclick="window.location.replace('index.php');" value="Back to Browsing">Back to Browsing</button>
+        <button onclick="window.location.replace('checkout.php');" value="Continue to Checkout">Continue to Checkout</button>
     </div>
 </body>
 </html>

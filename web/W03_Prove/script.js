@@ -35,9 +35,8 @@ $(document).ready(function(){
         $("#" + data[1]).css("display", "none")
         $.post("cartTable.php",{},
         function(data,status){
-        alert(data)
         document.getElementById("cartTable").innerHTML = data
-      });
+        });
       });
     });
   });
