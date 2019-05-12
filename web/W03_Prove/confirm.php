@@ -11,12 +11,12 @@
             <?php require("cartTable.php"); ?>
         </table>
         <?php
-            $street = htmlspecialchars($_SESSION["street"]);
-            $city = htmlspecialchars($_SESSION["city"]);
-            $state = htmlspecialchars($_SESSION["state"]);
-            $zip = htmlspecialchars($_SESSION["zip"]);
+            $street = htmlspecialchars($_POST["street"]);
+            $city = htmlspecialchars($_POST["city"]);
+            $state = htmlspecialchars($_POST["state"]);
+            $zip = htmlspecialchars($_POST["zip"]);
             echo("Your order will be delived to: <br> 
-                  $street
+                  $street <br>
                   $city, $state $zip");
         ?>
     </div>
