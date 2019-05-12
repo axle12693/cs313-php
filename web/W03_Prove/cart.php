@@ -10,25 +10,26 @@ $names = array("dr" => "Dragon", "ph" => "Phoenix", "hy" => "Hydra");
 <body>
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/header2.php'; ?>
     <div id="body_container">
-        <table>
+        <table id="cartTable">
             <?php
-                $total = 0;
-                foreach ($_SESSION["ItemsList"] as $item => $buying)
-                {
-                    if ($buying)
-                    {
-                        $total += $costs[$item];
-                        echo("<tr id=\"$item\" class=\"itemtr\">
-                                <td>$names[$item]</td>
-                                <td>\$$costs[$item]</td>
-                                <td><button value=\"Remove from cart\" id=\"$item\">Remove from cart</button></td>
-                              </tr>");
-                    }
-                }
-                echo("<tr>
-                        <td>Total:</td>
-                        <td>\$$total</td>
-                      </tr>");
+                require("cartTable.php");
+                // $total = 0;
+                // foreach ($_SESSION["ItemsList"] as $item => $buying)
+                // {
+                //     if ($buying)
+                //     {
+                //         $total += $costs[$item];
+                //         echo("<tr id=\"$item\" class=\"itemtr\">
+                //                 <td>$names[$item]</td>
+                //                 <td>\$$costs[$item]</td>
+                //                 <td><button value=\"Remove from cart\" id=\"$item\">Remove from cart</button></td>
+                //               </tr>");
+                //     }
+                // }
+                // echo("<tr>
+                //         <td>Total:</td>
+                //         <td>\$$total</td>
+                //       </tr>");
             ?>
         </table>    
         <button onclick="window.location.replace('index.php');" value="Back to Browsing">Back to Browsing</button>

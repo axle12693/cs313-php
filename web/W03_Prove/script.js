@@ -31,9 +31,13 @@ $(document).ready(function(){
       },
       function(data,status){
         data = JSON.parse(data)
-        alert(data)
         $(this).attr("id", "a")
         $("#" + data[1]).css("display", "none")
+      });
+
+      $.post("cartTable.php",{},
+      function(data,status){
+        document.getElementById("cartTable").innerHTML = data
       });
     });
   });
