@@ -18,6 +18,11 @@ function add_forum_categories()
         $result = pg_execute($conn, "get_forums", array($value["forum_category_id"]));
         $forum_rows = pg_fetch_all($result);
         
+        foreach ($forum_rows as $fkey => $fvalue)
+        {
+            echo("<li>" . $fvalue["title"] . "</li>")
+        }
+
         echo("</ol></li>");
     }
     echo("</ol>");
