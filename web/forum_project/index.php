@@ -20,7 +20,7 @@ function add_forum_categories()
         
         foreach ($forum_rows as $fkey => $fvalue)
         {
-            echo("<li>" . $fvalue["title"] . "</li>")
+            echo("<li>" . $fvalue["title"] . "</li>");
         }
 
         echo("</ol></li>");
