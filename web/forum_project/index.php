@@ -11,7 +11,7 @@ function add_forum_categories()
     $category_rows = pg_fetch_all($result);
 
     //Get forum IDs and titles for each category
-    $forums = array();
+    //$forums = array();
     for ($category_rows as $key => $value)
     {
         // $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
