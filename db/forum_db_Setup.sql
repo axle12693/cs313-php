@@ -81,3 +81,9 @@ VALUES
     (3, 2, 'I can''t really disagree with you there. Hydras are the worst!', '2019-05-16 15:23:00-00'),
     (4, 2, 'I strongly suspect it''s just throwing up.', '2019-05-16 15:24:00-00'),
     (5, 2, 'Why are you posting on here? Call 911!', '2019-05-16 15:25:00-00');
+
+SELECT  fc.title, f.title, p.title, au.username
+FROM    Post p INNER JOIN App_User au 
+ON      p.app_user_id = au.app_user_id INNER JOIN Forum f 
+ON      p.forum_id = f.forum_id INNER JOIN Forum_Category fc 
+ON      fc.forum_category_id = f.forum_category_id;
