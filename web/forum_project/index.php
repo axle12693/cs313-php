@@ -17,7 +17,7 @@ function add_forum_categories()
         // $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
         // $result = pg_execute($conn, "get_forums", array())
         print_r($key);
-        print_r($value);
+        print_r($value["forum_category_id"]);
     }
 }
 
