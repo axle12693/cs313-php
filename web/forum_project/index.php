@@ -9,16 +9,18 @@ function add_forum_categories()
     $result = pg_prepare($conn, "get_categories", 'SELECT * FROM FORUM_CATEGORY');
     $result = pg_execute($conn, "get_categories", array());
     $category_rows = pg_fetch_all($result);
-
+    echo("<ol>");
     //Get forum IDs and titles for each category
-    //$forums = array();
     foreach ($category_rows as $key => $value)
     {
-        // $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
-        // $result = pg_execute($conn, "get_forums", array())
-        print_r($key);
-        print_r($value["forum_category_id"]);
+        echo("<li>" . $value["title"] . "<ol>");
+        $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
+        $result = pg_execute($conn, "get_forums", array($value["forum_category_id"]));
+        $forum_rows = pg_fetch_all($result);
+        
+        echo("</ol></li>");
     }
+    echo("</ol>");
 }
 
 add_forum_categories();
