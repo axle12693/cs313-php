@@ -8,7 +8,7 @@ function add_forum_categories()
 
     $result = pg_execute($conn, "my_query", array());
 
-    echo($result);
+    echo($result[0]);
 }
 
 add_forum_categories();
