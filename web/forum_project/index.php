@@ -9,15 +9,15 @@ function add_forum_categories()
     $result = pg_prepare($conn, "get_categories", 'SELECT * FROM FORUM_CATEGORY');
     $result = pg_execute($conn, "get_categories", array());
     $category_rows = pg_fetch_all($result);
-
+    print_r($category_rows);
     //Get forum IDs and titles for each category
     //$forums = array();
-    for ($category_rows as $key => $value)
-    {
-        // $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
-        // $result = pg_execute($conn, "get_forums", array())
-        print_r($key . " " . $value);
-    }
+    // for ($category_rows as $key => $value)
+    // {
+    //     // $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
+    //     // $result = pg_execute($conn, "get_forums", array())
+    //     print_r($key . " " . $value);
+    // }
 }
 
 add_forum_categories();
