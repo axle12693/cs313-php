@@ -12,12 +12,11 @@ function add_forum_categories()
 
     //Get forum IDs and titles for each category
     //$forums = array();
-    for ($category_rows as $key => $value)
+    foreach ($category_rows as $key => $value)
     {
         // $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
         // $result = pg_execute($conn, "get_forums", array())
-        //print_r($key . " " . $value);
-        echo("Thing done!");
+        print_r($key . " " . $value);
     }
 }
 
