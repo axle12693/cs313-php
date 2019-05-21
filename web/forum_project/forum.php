@@ -23,7 +23,7 @@ require("forum_functions.php");
         $data_array = pg_fetch_all($result);
         foreach ($data_array as $key => $value)
         {
-            echo("Post " . $value["p.title"] . "<br>");
+            echo("Post " . $value["title"] . "<br>");
         }
         ?>  
     </div>
