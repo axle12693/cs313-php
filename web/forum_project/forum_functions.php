@@ -38,7 +38,7 @@ function add_forum_posts($forum_id)
         WHERE       p.forum_id = $1
         ORDER BY    p.date_last_updated DESC
         ");
-        $result = pg_execute($conn, "get_posts", array($forum));
+        $result = pg_execute($conn, "get_posts", array($forum_id));
         $data_array = pg_fetch_all($result);
         foreach ($data_array as $key => $value)
         {
