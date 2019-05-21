@@ -42,7 +42,7 @@ function add_forum_posts($forum_id)
         $data_array = pg_fetch_all($result);
         foreach ($data_array as $key => $value)
         {
-            echo("<div class=\"panel\">");
+            echo("<div class=\"panel panel-default\">");
             echo("Post " . $value["title"] . "<br>");
             echo("</div>");
         }
