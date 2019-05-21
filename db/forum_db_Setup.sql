@@ -51,7 +51,7 @@ CREATE TABLE Post (
     post_id             SERIAL  PRIMARY KEY,
     forum_id            SERIAL  REFERENCES Forum(forum_id),
     app_user_id         SERIAL  REFERENCES App_User(app_user_id),
-    title               VARCHAR(50),
+    title               VARCHAR(100),
     post_content        TEXT,
     date_last_updated   TIMESTAMP
 );
@@ -60,6 +60,7 @@ INSERT INTO Post
     (forum_id, app_user_id, title, post_content, date_last_updated)
 VALUES
     (1, 1, 'Dragons are so cool!', 'This is a post about how awesome dragons are. Woohoo!', '2019-05-16 12:37:00-00'),
+    (1, 1, 'Why do dragons come in so many different shapes and sizes?', 'Seriously, there are too many! What gives?', '2019-05-21 11:34:00-00'),
     (2, 1, 'Griffons are cool, too, I guess.', 'Really though, griffons are like the less-cool cousins of dragons.', '2019-05-16 12:38:00-00'),
     (3, 1, 'Hydras are evil.', 'Really, these are not dragons. They are multi-headed danger noodles.', '2019-05-16 12:40:00-00'),
     (4, 1, 'Is my dragon supposed to breathe Hawaiian Punch?', 'I thought they breathed fire, but recently, my dragon has been breathing a tasty beverage!', '2019-05-16 12:43:00-00'),

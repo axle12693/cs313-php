@@ -11,7 +11,7 @@ require("forum_functions.php");
         <?php
         $forum = htmlspecialchars($_GET["forum"]);
         $forum_title = htmlspecialchars($_GET["title"]);
-        add_forum_posts();
+        add_forum_posts($forum);
         ?>  
     </div>
 </body>
