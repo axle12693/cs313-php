@@ -9,23 +9,24 @@ function add_forum_categories()
     $result = pg_prepare($conn, "get_categories", 'SELECT * FROM FORUM_CATEGORY');
     $result = pg_execute($conn, "get_categories", array());
     $category_rows = pg_fetch_all($result);
-    echo("<ol>");
+    echo("<div class=\"container\">");
     //Get forum IDs and titles for each category
     foreach ($category_rows as $key => $value)
     {
-        echo("<li>" . $value["title"] . "<ol>");
+        echo("<div class=\"card bg-primary text-white\">");
+        echo("<div class=\"card-header\">" . $value["title"] . "</div>");
         $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
         $result = pg_execute($conn, "get_forums", array($value["forum_category_id"]));
         $forum_rows = pg_fetch_all($result);
         
         foreach ($forum_rows as $fkey => $fvalue)
         {
-            echo("<li><a href=\"forum.php?forum=" . $fvalue["forum_id"] . "&title=" . $fvalue["title"] . "\">" . $fvalue["title"] . "</a></li>");
+            echo("<div class=\"class_body\"><a href=\"forum.php?forum=" . $fvalue["forum_id"] . "&title=" . $fvalue["title"] . "\">" . $fvalue["title"] . "</a></div>");
         }
 
-        echo("</ol></li>");
+        echo("</div>");
     }
-    echo("</ol>");
+    echo("</div>");
 }
 
 function add_forum_posts($forum_id)
