@@ -35,7 +35,7 @@ function add_forum_posts($forum_id)
         SELECT      p.title, p.post_content, p.date_last_updated, au.username
         FROM        Post p INNER JOIN App_User au 
         ON          p.app_user_id = au.app_user_id
-        WHERE       forum_id = $1
+        WHERE       p.forum_id = $1
         ORDER BY    p.date_last_updated DESC
         ");
         $result = pg_execute($conn, "get_posts", array($forum));
