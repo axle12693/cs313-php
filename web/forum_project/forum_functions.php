@@ -21,7 +21,7 @@ function add_forum_categories()
         
         foreach ($forum_rows as $fkey => $fvalue)
         {
-            echo("<div class=\"card_body\"><a href=\"forum.php?forum=" . $fvalue["forum_id"] . "&title=" . $fvalue["title"] . "\">" . $fvalue["title"] . "</a></div>");
+            echo("<a class=\"card_body\" href=\"forum.php?forum=" . $fvalue["forum_id"] . "&title=" . $fvalue["title"] . "\">" . $fvalue["title"] . "</a>");
         }
 
         echo("</div>");
