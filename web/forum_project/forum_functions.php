@@ -40,11 +40,11 @@ function add_forum_posts($forum_id)
     ");
     $result = pg_execute($conn, "get_posts", array($forum_id));
     $data_array = pg_fetch_all($result);
-    echo("<div class=\"panel-group\">");
+    echo("<div class=\"container\">");
     foreach ($data_array as $key => $value)
     {
-        echo("<div class=\"panel panel-default\">");
-        echo("<div class=\"panel-heading\">");
+        echo("<div class=\"card bg-primary text-white\">");
+        echo("<div class=\"card-body\">");
         echo("Post " . $value["title"] . "<br>");
         echo("</div></div>");
     }
