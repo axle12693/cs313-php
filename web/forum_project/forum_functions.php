@@ -43,8 +43,9 @@ function add_forum_posts($forum_id)
         foreach ($data_array as $key => $value)
         {
             echo("<div class=\"panel panel-default\">");
+            echo("<div class=\"panel-body\">")
             echo("Post " . $value["title"] . "<br>");
-            echo("</div>");
+            echo("</div></div>");
         }
 }
 
