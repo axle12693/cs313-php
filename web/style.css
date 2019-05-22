@@ -29,7 +29,7 @@
     overflow: auto;
 }
 
-div.link:hover
+div.alink:hover
 {
     font-weight: bold;
     text-decoration: underline;

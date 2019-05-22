@@ -21,7 +21,7 @@ function add_forum_categories()
         
         foreach ($forum_rows as $fkey => $fvalue)
         {
-            echo("<div class=\"link\" onclick=window.location.href='forum.php?forum=" . $fvalue["forum_id"] . "'>" . $fvalue["title"] . "</div>");
+            echo("<div class=\"alink\" onclick=window.location.href='forum.php?forum=" . $fvalue["forum_id"] . "'>" . $fvalue["title"] . "</div>");
         }
 
         echo("</div>");
