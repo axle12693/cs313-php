@@ -10,7 +10,7 @@ require("forum_functions.php");
     <div id="body_container">
         <?php
         $forum = htmlspecialchars($_GET["forum"]);
-        $forum_title = htmlspecialchars($_GET["title"]);
+        //$forum_title = htmlspecialchars($_GET["title"]);
         add_forum_posts($forum);
         ?>  
     </div>
