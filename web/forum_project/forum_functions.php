@@ -98,8 +98,8 @@ function add_post_and_comments($post_id)
     echo("</div>");
 }
 
-$current_category = Array();
-$current_forum = Array();
+$current_category = array();
+$current_forum = array();
 
 function setup_current_forum_nav($forum_id)
 {
@@ -114,9 +114,9 @@ function setup_current_forum_nav($forum_id)
     $result = pg_execute($conn, "get_current", array($forum_id));
     $data = pg_fetch_all($result);
     print_r($data);
-    $current_category = Array("id" => $data["forum_category_id"], "title" => $data["cat_title"]);
-    $current_forum = Array("id" => $forum_id, "title" => $data["title"]);
-    echo($current_category["title"] . " " . $current_forum["title"]);
+    $current_category = array("id" => $data["forum_category_id"], "title" => $data["cat_title"]);
+    $current_forum = array("id" => $forum_id, "title" => $data["title"]);
+    echo("\n" . $current_category["title"] . " " . $current_forum["title"]);
 }
 
 function get_forum_from_post($post_id)
