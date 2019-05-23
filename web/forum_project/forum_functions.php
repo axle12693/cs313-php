@@ -54,7 +54,7 @@ function add_forum_posts($forum_id)
             echo("<div class=\"card bg-info text-white\">");
         }
         $i+=1;
-        echo("<div class=\"card-body alink\" onclick=\"post.php?post=" . $value[""] . "\">");
+        echo("<div class=\"card-body alink\" onclick=window.location.href=\"post.php?post=" . $value[""] . "\">");
         echo($value["title"] . " - " . $value["username"] . " - " . $value["date_last_updated"]);
         echo("</div></div>");
     }
