@@ -98,8 +98,12 @@ function add_post_and_comments($post_id)
     echo("</div>");
 }
 
+$current_category = null;
+$current_forum = null;
+
 function setup_current_forum_nav($forum_id)
 {
+    global $current_category, $current_forum;
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "get_current", "
     SELECT      f.title, fc.forum_category_id, fc.title AS cat_title
