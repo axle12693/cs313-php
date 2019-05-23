@@ -84,7 +84,7 @@ function add_post_and_comments($post_id)
     $comment_array = pg_fetch_all($result);
 
     echo("<div class=\"container\"");
-    echo("This is where the post and comments go!")
+    echo("This is where the post and comments go!");
     echo("</div>");
 }
 
