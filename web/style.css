@@ -31,7 +31,7 @@
 
 div.alink:hover
 {
-    background-color: blue;
+    background-color: aqua;
     cursor: pointer;
     color: #DDDDDD;
     text-decoration: underline;
