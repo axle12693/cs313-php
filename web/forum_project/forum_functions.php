@@ -91,6 +91,9 @@ function add_post_and_comments($post_id)
     echo("<div class=\"card-header\">");
     echo($post["title"] . " - " . $post["username"] . " - " . $post["date_last_updated"]);
     echo("</div>");
+    echo("<div class=\"card-body\">");
+    echo($post["post-content"]);
+    echo("</div>");
     echo("</div>");
     echo("</div>");
 }
