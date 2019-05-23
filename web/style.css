@@ -31,6 +31,6 @@
 
 div.alink:hover
 {
-    font-weight: bold;
+    color: #DDDDDD;
     text-decoration: underline;
 }
