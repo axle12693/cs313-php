@@ -33,7 +33,7 @@ function add_forum_posts($forum_id)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "get_posts", "
-    SELECT      p.title, p.post_content, p.date_last_updated::date, au.username
+    SELECT      p.post_id, p.title, p.post_content, p.date_last_updated::date, au.username
     FROM        Post p INNER JOIN App_User au 
     ON          p.app_user_id = au.app_user_id
     WHERE       p.forum_id = $1
@@ -54,7 +54,7 @@ function add_forum_posts($forum_id)
             echo("<div class=\"card bg-info text-white\">");
         }
         $i+=1;
-        echo("<div class=\"card-body\">");
+        echo("<div class=\"card-body alink\" onclick=\"post.php?post=" . $value[""] . "\">");
         echo($value["title"] . " - " . $value["username"] . " - " . $value["date_last_updated"]);
         echo("</div></div>");
     }
