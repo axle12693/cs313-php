@@ -6,10 +6,10 @@
     <?php 
     if (isset($current_category))
     {
-        echo("<li class=\"nav-item\"> &gt;&gt; <a class=\"nav-link\" href=\"index.php\">" . $current_category["title"] . "</a></li>");
+        echo("<li class=\"nav-item\"><a class=\"nav-link\" href=\"index.php\"> &gt;&gt; " . $current_category["title"] . "</a></li>");
         if (isset($current_forum))
         {
-            echo("<li class=\"nav-item\"> &gt;&gt; <a class=\"nav-link\" href=\"forum.php?forum=" . $current_forum["id"] . "\">" . $current_forum["title"] . "</a></li>");
+            echo("<li class=\"nav-item\"><a class=\"nav-link\" href=\"forum.php?forum=" . $current_forum["id"] . "\"> &gt;&gt; " . $current_forum["title"] . "</a></li>");
         }
     }
 

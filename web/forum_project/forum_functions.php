@@ -113,10 +113,10 @@ function setup_current_forum_nav($forum_id)
     ");
     $result = pg_execute($conn, "get_current", array($forum_id));
     $data = pg_fetch_all($result);
-    //print_r(data);
+    print_r(data);
     $current_category = Array("id" => $data["forum_category_id"], "title" => $data["cat_title"]);
     $current_forum = Array("id" => $forum_id, "title" => $data["title"]);
-    //echo($current_category["id"] . " " . $current_forum["id"]);
+    echo($current_category["id"] . " " . $current_forum["id"]);
 }
 
 function get_forum_from_post($post_id)
