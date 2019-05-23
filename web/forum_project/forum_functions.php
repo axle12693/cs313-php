@@ -72,6 +72,7 @@ function add_post_and_comments($post_id)
     ");
     $result = pg_execute($conn, "get_post", array($post_id));
     $post_array = pg_fetch_all($result);
+    $post = $post_array[0];
 
     $result = pg_prepare($conn, "get_comments", "
     SELECT      pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date
@@ -83,8 +84,14 @@ function add_post_and_comments($post_id)
     $result = pg_execute($conn, "get_comments", array($post_id));
     $comment_array = pg_fetch_all($result);
 
+
+
     echo("<div class=\"container\">");
-    echo("This is where the post and comments go!");
+    echo("<div class=\"card bg-primary text-white\">");
+    echo("<div class=\"card-header\"">);
+    echo($post["title"] . " - " . $post["username"] . " - " . $post["date_last_updated"]);
+    echo("</div>");
+    echo("</div>");
     echo("</div>");
 }
 
