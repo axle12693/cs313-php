@@ -98,8 +98,8 @@ function add_post_and_comments($post_id)
     echo("</div>");
 }
 
-$current_category = array();
-$current_forum = array();
+$current_category = null;
+$current_forum = null;
 
 function setup_current_forum_nav($forum_id)
 {
