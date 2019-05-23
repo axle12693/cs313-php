@@ -132,6 +132,7 @@ function get_forum_from_post($post_id)
     ");
     $result = pg_execute($conn, "get_forum_from_post", array($post_id));
     $data = pg_fetch_all($result);
+    print_r($data);
     return $data[0]["id"];
 }
 ?>
