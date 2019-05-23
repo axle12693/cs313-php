@@ -125,14 +125,13 @@ function get_forum_from_post($post_id)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "get_forum_from_post", "
-    SELECT      f.id
+    SELECT      f.forum_id
     FROM        Forum f INNER JOIN Post p
     ON          f.forum_id = p.forum_id
     WHERE       p.post_id = $1
     ");
     $result = pg_execute($conn, "get_forum_from_post", array($post_id));
     $data = pg_fetch_all($result);
-    print_r($data);
-    return $data[0]["id"];
+    return $data[0]["forum_id"];
 }
 ?>

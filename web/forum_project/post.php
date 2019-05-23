@@ -10,8 +10,8 @@ require("forum_functions.php");
         <?php
         $post = htmlspecialchars($_GET["post"]);
         $forum_id = get_forum_from_post($post);
-        echo("Post: " . $post);
-        echo("<br>Forum: " . $forum_id);
+        // echo("Post: " . $post);
+        // echo("<br>Forum: " . $forum_id);
         setup_current_forum_nav($forum_id);
         require("forum_header.php");
         add_post_and_comments($post);
