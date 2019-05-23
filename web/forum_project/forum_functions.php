@@ -55,7 +55,7 @@ function add_forum_posts($forum_id)
         }
         $i+=1;
         echo("<div class=\"card-body\">");
-        echo("Post " . $value["title"] . "<br>");
+        echo($value["title"] . " - " . $value["username"] . " - " . $value["date_last_updated"]);
         echo("</div></div>");
     }
     echo("</div>");
