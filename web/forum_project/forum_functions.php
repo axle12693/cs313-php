@@ -118,7 +118,7 @@ function setup_current_forum_nav($forum_id)
     $current_category["title"] = $data["cat_title"];
     $current_forum["id"] = $forum_id;
     $current_forum["title"] = $data["title"];
-    echo("\n" . $current_category["title"] . " " . $current_forum["title"]);
+    echo("<br>TEST: " . $current_category["title"] . " " . $current_forum["title"]);
 }
 
 function get_forum_from_post($post_id)
