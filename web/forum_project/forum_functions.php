@@ -98,4 +98,32 @@ function add_post_and_comments($post_id)
     echo("</div>");
 }
 
+function setup_current_forum_nav($forum_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_current", "
+    SELECT      f.title, fc.forum_category_id, fc.title AS cat_title
+    FROM        Forum f INNER JOIN Forum_Category fc
+    ON          f.forum_category_id = fc.forum_category_id
+    WHERE       f.forum_id = $1
+    ");
+    $result = pg_execute($conn, "get_current", array($forum_id));
+    $data = pg_fetch_all($result);
+    $current_category = Array("id" => data["forum_category_id"], "title" => data["cat_title"]);
+    $current_forum = Array("id" => $forum_id, "title" => data["title"]);
+}
+
+function get_forum_from_post($post_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_forum_from_post", "
+    SELECT      f.id
+    FROM        Forum f INNER JOIN Post p
+    ON          f.forum_id = p.forum_id
+    WHERE       p.post_id = $1
+    ");
+    $result = pg_execute($conn, "get_get_forum_from_post", array($post_id));
+    $data = pg_fetch_all($result);
+    return data[0]["id"];
+}
 ?>

@@ -10,8 +10,9 @@ require("forum_functions.php");
 
     <div id="body_container">
         <?php
-        require("forum_header.php");
         $forum = htmlspecialchars($_GET["forum"]);
+        setup_current_forum_nav($forum);
+        require("forum_header.php");
         //$forum_title = htmlspecialchars($_GET["title"]);
         add_forum_posts($forum);
         ?>  

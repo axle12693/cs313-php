@@ -8,9 +8,10 @@ require("forum_functions.php");
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/header2.php'); ?>
     <div id="body_container">
         <?php
-        require("forum_header.php");
         $post = htmlspecialchars($_GET["post"]);
-        //$forum_title = htmlspecialchars($_GET["title"]);
+        $forum_id = get_forum_from_post($post);
+        setup_current_forum_nav($forum_id);
+        require("forum_header.php");
         add_post_and_comments($post);
         ?>  
     </div>
