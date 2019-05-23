@@ -130,7 +130,7 @@ function get_forum_from_post($post_id)
     ON          f.forum_id = p.forum_id
     WHERE       p.post_id = $1
     ");
-    $result = pg_execute($conn, "get_get_forum_from_post", array($post_id));
+    $result = pg_execute($conn, "get_forum_from_post", array($post_id));
     $data = pg_fetch_all($result);
     return $data[0]["id"];
 }
