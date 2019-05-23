@@ -52,8 +52,8 @@ function add_forum_posts($forum_id)
         else
         {
             echo("<div class=\"card bg-info text-white\">");
-
         }
+        $i+=1;
         echo("<div class=\"card-body\">");
         echo("Post " . $value["title"] . "<br>");
         echo("</div></div>");
