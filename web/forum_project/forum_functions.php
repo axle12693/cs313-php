@@ -115,7 +115,7 @@ function setup_current_forum_nav($forum_id)
     $data = pg_fetch_all($result);
     $current_category = Array("id" => data["forum_category_id"], "title" => data["cat_title"]);
     $current_forum = Array("id" => $forum_id, "title" => data["title"]);
-    echo($current_category . " " . $current_forum);
+    echo($current_category["title"] . " " . $current_forum["title"]);
 }
 
 function get_forum_from_post($post_id)
