@@ -100,11 +100,9 @@ function add_post_and_comments($post_id)
     foreach ($comment_array as $key => $value)
     {
         echo("<div class=\"card bg-info text-white\">");
-        echo("<div class=\"card-header\">");
-        echo($value["username"] . " - " . $value["date_last_updated"]);
-        echo("</div>");
         echo("<div class=\"card-body\">");
-        echo($value["post_comment_content"]);
+        echo($value["post_comment_content"] . "<br><br>");
+        echo($value["username"] . " - " . $value["date_last_updated"]);
         echo("</div>");
         echo("</div>");
     }
