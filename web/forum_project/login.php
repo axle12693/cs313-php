@@ -15,6 +15,7 @@ require("forum_functions.php");
         $redirect_url = htmlspecialchars($_POST["redirect_url"]);
         if (try_login($uname, $pword)) {
             header("Location: " . $redirect_url);
+            die();
         }
         else 
         {
