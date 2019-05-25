@@ -3,7 +3,7 @@
   <form class="form-inline my-2 my-lg-0" action="login.php" method="post">
     <input class="form-control mr-sm-2" type="text" placeholder="Username" name="uname">
     <input class="form-control mr-sm-2" type="password" placeholder="Password" name="pword">
-    <input type="hidden" value="<?php echo($_SERVER['PHP_SELF']); ?>" name="redirect_url">
+    <input type="hidden" value="<?php if (isset($_POST['redirect_url'])){echo(htmlspecialchars($_POST['redirect_url']));} else {echo($_SERVER['PHP_SELF']);} ?>" name="redirect_url">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login/Sign up</button>
   </form>
   <?php } else { echo("Hello " . get_logged_in_username());} ?>
