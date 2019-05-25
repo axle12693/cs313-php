@@ -147,7 +147,31 @@ function get_forum_from_post($post_id)
     return $data[0]["forum_id"];
 }
 
-function is_logged_in() {
-    return isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"];
+function is_logged_in() {return isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"];}
+
+function get_logged_in_username() {return $_SESSION["logged_in_username"];}
+
+function try_login($uname, $pword)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "try_login", "
+    SELECT      au.username, au.app_user_id
+    FROM        App_User au
+    WHERE       au.username = $1 AND au.pw = $2
+    ");
+    $result = pg_execute($conn, "try_login", array($uname, $pword));
+    $data = pg_fetch_all($result);
+    if (empty($data))
+    {
+        return false;
+    }
+    else
+    {
+        $data = $data[0];
+        $_SESSION["logged_in_username"] = $data["username"];
+        $_SESSION["is_logged_in"] = true;
+        $_SESSION["logged_in_user_id"] = $data["app_user_id"];
+        return true;
+    }
 }
 ?>

@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
   <?php if (!is_logged_in()) { ?>
   <form class="form-inline my-2 my-lg-0" action="login.php" method="post">
-    <input class="form-control mr-sm-2" type="text" placeholder="Username">
-    <input class="form-control mr-sm-2" type="password" placeholder="Password">
+    <input class="form-control mr-sm-2" type="text" placeholder="Username" name="uname">
+    <input class="form-control mr-sm-2" type="password" placeholder="Password" name="pword">
+    <input type="hidden" value="<?php echo($_SERVER['PHP_SELF']); ?>">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login/Sign up</button>
   </form>
   <?php } else { echo("Hello " . get_logged_in_username());} ?>

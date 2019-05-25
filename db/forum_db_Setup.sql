@@ -4,22 +4,35 @@ DROP TABLE IF EXISTS App_User;
 DROP TABLE IF EXISTS Forum;
 DROP TABLE IF EXISTS Forum_Category;
 
+CREATE TABLE User_Type (
+    user_type_id    SERIAL  PRIMARY KEY,
+    user_type_title VARCHAR(30),
+);
+
+INSERT INTO User_Type
+    (user_type_title)
+VALUES
+    ('Global Admin'),
+    ('Forum Moderator');
+    ('User')
+
 CREATE TABLE App_User (
-    app_user_id SERIAL  PRIMARY KEY,
-    first_name  VARCHAR(40),
-    middle_name VARCHAR(40),
-    last_name   VARCHAR(40),
-    username    VARCHAR(40),
-    pw          VARCHAR(20)
+    app_user_id     SERIAL  PRIMARY KEY,
+    user_type_id    SERIAL  REFERENCES(User_Type),
+    first_name      VARCHAR(40),
+    middle_name     VARCHAR(40),
+    last_name       VARCHAR(40),
+    username        VARCHAR(40),
+    pw              VARCHAR(20)
     /*pw_hash     TEXT,
     salt        TEXT   -- to be implemented later.*/ 
 );
 
 INSERT INTO App_User
-    (first_name, middle_name, last_name, username, pw)
+    (user_type_id, first_name, middle_name, last_name, username, pw)
 VALUES
-    ('Alex', 'C. ', 'Bentley', 'axle12693', 'test123'),
-    ('Bob', 'the', 'Commenter', 'BobComment', 'comment123');
+    (1, 'Alex', 'C. ', 'Bentley', 'axle12693', 'test123'),
+    (3, 'Bob', 'the', 'Commenter', 'BobComment', 'comment123');
 
 CREATE TABLE Forum_Category (
     forum_category_id   SERIAL  PRIMARY KEY,
