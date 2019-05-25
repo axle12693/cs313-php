@@ -1,24 +1,25 @@
 DROP TABLE IF EXISTS Post_Comment;
 DROP TABLE IF EXISTS Post;
 DROP TABLE IF EXISTS App_User;
+DROP TABLE IF EXISTS App_User_Type;
 DROP TABLE IF EXISTS Forum;
 DROP TABLE IF EXISTS Forum_Category;
 
-CREATE TABLE User_Type (
+CREATE TABLE App_User_Type (
     user_type_id    SERIAL  PRIMARY KEY,
-    user_type_title VARCHAR(30),
+    user_type_title VARCHAR(30)
 );
 
-INSERT INTO User_Type
+INSERT INTO App_User_Type
     (user_type_title)
 VALUES
     ('Global Admin'),
-    ('Forum Moderator');
-    ('User')
+    ('Forum Moderator'),
+    ('User');
 
 CREATE TABLE App_User (
     app_user_id     SERIAL  PRIMARY KEY,
-    user_type_id    SERIAL  REFERENCES(User_Type),
+    user_type_id    SERIAL  REFERENCES App_User_Type(user_type_id),
     first_name      VARCHAR(40),
     middle_name     VARCHAR(40),
     last_name       VARCHAR(40),

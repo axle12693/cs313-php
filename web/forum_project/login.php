@@ -18,7 +18,7 @@ require("forum_functions.php");
         }
         else 
         {
-            echo("Login failed! This will be implemented later.")
+            echo("Login failed! This will be implemented later.");
         }
          ?>
     </div>
