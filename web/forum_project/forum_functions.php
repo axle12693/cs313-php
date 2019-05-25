@@ -75,9 +75,10 @@ function add_post_and_comments($post_id)
     $post = $post_array[0];
 
     $result = pg_prepare($conn, "get_comments", "
-    SELECT      pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date
+    SELECT      pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date, au.username
     FROM        Post p INNER JOIN Post_Content pc
-    ON          p.app_user_id = pc.app_user_id
+    ON          p.app_user_id = pc.app_user_id INNER JOIN App_User au
+    ON          pc.app_user_id = au.app_user_id
     WHERE       pc.post_id = $1
     ORDER BY    pc.date_last_updated::date
     ");
@@ -95,7 +96,20 @@ function add_post_and_comments($post_id)
     echo($post["post_content"]);
     echo("</div>");
     echo("</div>");
+    foreach ($comment_array as $key => $value)
+    {
+        echo("<div class=\"card bg-info text-white\">");
+        echo("<div class=\"card-header\">");
+        echo($post["username"] . " - " . $post["date_last_updated"]);
+        echo("</div>");
+        echo("<div class=\"card-body\">");
+        echo($post["post_comment_content"]);
+        echo("</div>");
+        echo("</div>");
+    }
     echo("</div>");
+
+
 }
 
 $current_category = null;
