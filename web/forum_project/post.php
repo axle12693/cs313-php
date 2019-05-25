@@ -8,6 +8,7 @@ require("forum_functions.php");
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/header2.php'); ?>
     <div id="body_container">
         <?php
+        if (!isset($_GET['post'])) {header("Location: index.html");}
         $post = htmlspecialchars($_GET["post"]);
         $forum_id = get_forum_from_post($post);
         // echo("Post: " . $post);
