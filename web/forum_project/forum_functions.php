@@ -84,7 +84,6 @@ function add_post_and_comments($post_id)
     ");
     $result = pg_execute($conn, "get_comments", array($post_id));
     $comment_array = pg_fetch_all($result);
-    print_r($comment_array);
 
 
 
