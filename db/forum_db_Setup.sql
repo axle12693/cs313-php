@@ -79,6 +79,7 @@ INSERT INTO Post_Comment
     (post_id, app_user_id, post_comment_content, date_last_updated)
 VALUES
     (1, 2, 'You''re not wrong - dragons really are one of the most magnificent beasts!', '2019-05-16 15:19:00-00'),
+    (1, 2, 'Followup - I  just want to say that dragons, while awesome, are dangerous.', '2019-05-25 16:02:00-00'),
     (2, 2, 'I totally disagree! Dragons might be amazong, but they pale in comparison to griffons!', '2019-05-16 15:20:00-00'),
     (3, 2, 'I can''t really disagree with you there. Hydras are the worst!', '2019-05-16 15:23:00-00'),
     (4, 2, 'I strongly suspect it''s just throwing up.', '2019-05-16 15:24:00-00'),
