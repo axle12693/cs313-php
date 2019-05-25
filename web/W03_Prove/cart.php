@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/header1.php'; ?>
 
     <script src="script.js"></script>

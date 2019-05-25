@@ -146,4 +146,8 @@ function get_forum_from_post($post_id)
     $data = pg_fetch_all($result);
     return $data[0]["forum_id"];
 }
+
+function is_logged_in() {
+    return isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"];
+}
 ?>
