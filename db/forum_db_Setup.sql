@@ -24,9 +24,8 @@ CREATE TABLE App_User (
     middle_name     VARCHAR(40),
     last_name       VARCHAR(40),
     username        VARCHAR(40),
-    pw              VARCHAR(20)
-    /*pw_hash     TEXT,
-    salt        TEXT   -- to be implemented later.*/ 
+    pw              VARCHAR(20),
+    pw_hash         TEXT
 );
 
 INSERT INTO App_User
