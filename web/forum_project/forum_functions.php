@@ -155,13 +155,17 @@ function try_login($uname, $pword)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "try_login", "
-    SELECT      au.username, au.app_user_id
+    SELECT      au.pw_hash, au.app_user_id
     FROM        App_User au
-    WHERE       au.username = $1 AND au.pw_hash = $2
+    WHERE       au.username = $1
     ");
-    $result = pg_execute($conn, "try_login", array($uname, password_hash($pword, PASSWORD_BCRYPT)));
+    $result = pg_execute($conn, "try_login", array($uname));
     $data = pg_fetch_all($result);
     if (empty($data))
+    {
+        return false;
+    }
+    elseif (!password_verify(data[0]["pw_hash"], $pword))
     {
         return false;
     }
