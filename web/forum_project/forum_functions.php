@@ -157,9 +157,9 @@ function try_login($uname, $pword)
     $result = pg_prepare($conn, "try_login", "
     SELECT      au.username, au.app_user_id
     FROM        App_User au
-    WHERE       au.username = $1 AND au.pw = $2
+    WHERE       au.username = $1 AND au.pw_hash = $2
     ");
-    $result = pg_execute($conn, "try_login", array($uname, $pword));
+    $result = pg_execute($conn, "try_login", array($uname, password_hash($pword, PASSWORD_BCRYPT)));
     $data = pg_fetch_all($result);
     if (empty($data))
     {
