@@ -10,7 +10,7 @@ $pw_array = pg_fetch_all($result);
 foreach ($pw_array as $key => $value)
 {
     $pw = $value["pw"];
-    $pw_hash = password_hash($pw, PASSWORD_DEFAULT);
+    $pw_hash = password_hash($pw, PASSWORD_BCRYPT);
     $result = pg_prepare($conn, "change_to_hashes2", "
     UPDATE  App_User
     SET     pw_hash = $1

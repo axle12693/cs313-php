@@ -25,7 +25,7 @@ CREATE TABLE App_User (
     last_name       VARCHAR(40),
     username        VARCHAR(40),
     pw              VARCHAR(20),
-    pw_hash         TEXT
+    pw_hash         VARCHAR(60)
 );
 
 INSERT INTO App_User
