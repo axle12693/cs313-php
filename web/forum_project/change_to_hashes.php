@@ -10,6 +10,7 @@ $pw_array = pg_fetch_all($result);
 foreach ($pw_array as $key => $value)
 {
     $pw = $value["pw"];
+    echo("For user " . $value["app_user_id"] . ", the original password was " . $pw);
     $pw_hash = password_hash($pw, PASSWORD_BCRYPT);
     $result = pg_prepare($conn, "change_to_hashes2", "
     UPDATE  App_User
