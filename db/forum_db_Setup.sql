@@ -94,10 +94,10 @@ INSERT INTO Post_Comment
 VALUES
     (1, 2, 'You''re not wrong - dragons really are one of the most magnificent beasts!', '2019-05-16 15:19:00-00'),
     (1, 2, 'Followup - I  just want to say that dragons, while awesome, are dangerous.', '2019-05-25 16:02:00-00'),
-    (2, 2, 'I totally disagree! Dragons might be amazong, but they pale in comparison to griffons!', '2019-05-16 15:20:00-00'),
-    (3, 2, 'I can''t really disagree with you there. Hydras are the worst!', '2019-05-16 15:23:00-00'),
-    (4, 2, 'I strongly suspect it''s just throwing up.', '2019-05-16 15:24:00-00'),
-    (5, 2, 'Why are you posting on here? Call 911!', '2019-05-16 15:25:00-00');
+    (4, 2, 'I totally disagree! Dragons might be amazing, but they pale in comparison to griffons!', '2019-05-16 15:20:00-00'),
+    (5, 2, 'I can''t really disagree with you there. Hydras are the worst!', '2019-05-16 15:23:00-00'),
+    (6, 2, 'I strongly suspect it''s just throwing up.', '2019-05-16 15:24:00-00'),
+    (7, 2, 'Why are you posting on here? Call 911!', '2019-05-16 15:25:00-00');
 
 SELECT  fc.title, f.title, p.title, au.username
 FROM    Post p INNER JOIN App_User au 
