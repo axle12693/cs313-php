@@ -155,7 +155,7 @@ function try_login($uname, $pword)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "try_login", "
-    SELECT      au.pw_hash, au.app_user_id
+    SELECT      au.pw_hash, au.app_user_id, au.username
     FROM        App_User au
     WHERE       au.username = $1
     ");
