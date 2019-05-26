@@ -10,7 +10,7 @@
     } 
     else 
     { 
-      echo("Hello " . get_logged_in_username());
+      echo("Hello " . get_logged_in_username() . "&nbsp;&nbsp;");
       ?>
         <form class="form-inline my-2 my-lg-0" action="login.php" method="post">
           <input type="hidden" value="<?php if (isset($_POST['redirect_url'])){echo(htmlspecialchars($_POST['redirect_url']));} else {echo($_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']);} ?>" name="redirect_url">
