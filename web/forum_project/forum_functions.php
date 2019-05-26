@@ -163,9 +163,9 @@ function try_login($uname, $pword)
     $data = pg_fetch_all($result);
     if (empty($data))
     {
-        return true;
+        return false;
     }
-    elseif (!password_verify(data[0]["pw_hash"], $pword))
+    elseif (!password_verify($pword, data[0]["pw_hash"]))
     {
         return false;
     }
