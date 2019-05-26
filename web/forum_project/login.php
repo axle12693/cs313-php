@@ -10,7 +10,7 @@ require("forum_functions.php");
     <div id="body_container">
         <?php 
         require("forum_header.php");
-        $uname = $_POST["uname"]); //htmlspecialchars($_POST["uname"]);
+        $uname = htmlspecialchars($_POST["uname"]);
         $pword = htmlspecialchars($_POST["pword"]);
         $redirect_url = htmlspecialchars($_POST["redirect_url"]);
         if (try_login($uname, $pword)) {
