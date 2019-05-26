@@ -168,6 +168,7 @@ function try_login($uname, $pword)
     elseif (!password_verify($pword, data[0]["pw_hash"]))
     {
         echo(strlen(data[0]["pw_hash"]));
+        echo(data[0]["pw_hash"]);
         return false;
     }
     else
