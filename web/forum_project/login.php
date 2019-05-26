@@ -13,6 +13,13 @@ require("forum_functions.php");
         $uname = htmlspecialchars($_POST["uname"]);
         $pword = htmlspecialchars($_POST["pword"]);
         $redirect_url = htmlspecialchars($_POST["redirect_url"]);
+        if (isset($_POST["logout"]))
+        {
+            session_unset();
+            session_destroy();
+            header("Location: " . $redirect_url);
+            die();
+        }
         if (try_login($uname, $pword)) {
             header("Location: " . $redirect_url);
             die();

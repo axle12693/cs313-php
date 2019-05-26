@@ -4,9 +4,21 @@
     <input class="form-control mr-sm-2" type="text" placeholder="Username" name="uname">
     <input class="form-control mr-sm-2" type="password" placeholder="Password" name="pword">
     <input type="hidden" value="<?php if (isset($_POST['redirect_url'])){echo(htmlspecialchars($_POST['redirect_url']));} else {echo($_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']);} ?>" name="redirect_url">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login/Sign up</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="sub">Login/Sign up</button>
   </form>
-  <?php } else { echo("Hello " . get_logged_in_username());} ?>
+  <?php 
+    } 
+    else 
+    { 
+      echo("Hello " . get_logged_in_username());
+      ?>
+        <form class="form-inline my-2 my-lg-0" action="login.php" method="post">
+          <input type="hidden" value="<?php if (isset($_POST['redirect_url'])){echo(htmlspecialchars($_POST['redirect_url']));} else {echo($_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']);} ?>" name="redirect_url">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="logout">Log out</button>
+        </form>
+      <?php
+    } 
+    ?>
 </nav>
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
   <ul class="navbar-nav">
