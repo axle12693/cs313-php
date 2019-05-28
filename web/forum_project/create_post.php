@@ -11,6 +11,7 @@ require("forum_functions.php");
     <div id="body_container">
         <?php
         $forum = htmlspecialchars($_REQUEST["forum"]);
+        echo($forum);
         setup_current_forum_nav($forum);
         require("forum_header.php");
         // if (isset($_POST["title"]) && isset($_POST["post-content"]) && is_logged_in())
