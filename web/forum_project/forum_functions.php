@@ -77,7 +77,7 @@ function add_post_and_comments($post_id)
     $result = pg_prepare($conn, "get_comments", "
     SELECT      pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date, au.username
     FROM        Post p INNER JOIN Post_Comment pc
-    ON          p.app_user_id = pc.app_user_id INNER JOIN App_User au
+    ON          p.post_id = pc.post_id INNER JOIN App_User au
     ON          pc.app_user_id = au.app_user_id
     WHERE       pc.post_id = $1
     ORDER BY    pc.date_last_updated::date
