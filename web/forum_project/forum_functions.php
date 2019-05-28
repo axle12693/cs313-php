@@ -151,6 +151,8 @@ function is_logged_in() {return isset($_SESSION["is_logged_in"]) && $_SESSION["i
 
 function get_logged_in_username() {return $_SESSION["logged_in_username"];}
 
+function get_logged_in_user_id() {return $_SESSION["logged_in_user_id"];}
+
 function try_login($uname, $pword)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));

@@ -13,20 +13,32 @@ require("forum_functions.php");
         $forum = htmlspecialchars($_REQUEST["forum"]);
         setup_current_forum_nav($forum);
         require("forum_header.php");
-        // if (isset($_POST["title"]) && isset($_POST["post-content"]) && is_logged_in())
-        // {
-        //     $conn = pg_connect(getenv("DATABASE_URL"));
-        //     $result = pg_prepare($conn, "create_post", "
-        //     INSERT INTO 
-        //     ");
-        //     $result = pg_execute($conn, "create_post", array($uname));
-        //     //redirect after everything
-        // }
+        if (isset($_POST["title"]) && isset($_POST["post-content"]) && is_logged_in())
+        {
+            $title = htmlspecialchars($_POST["title"]);
+            $post_content = htmlspecialchars($_POST["post-content"]);
+            $conn = pg_connect(getenv("DATABASE_URL"));
+            $result = pg_prepare($conn, "create_post", "
+            INSERT INTO Post
+            (post_id, forum_id, app_user_id, title, post_content, date_last_updated)
+            VALUES
+            (nextval('s_Post'), $1, $2, $3, $4, current_timestamp)
+            ");
+            $result = pg_execute($conn, "create_post", array($forum, get_logged_in_user_id(), $title, $post_content));
+
+            $result = pg_prepare($conn, "get_last_post_id", "
+            SELECT currval('s_Post')
+            ");
+            $result = pg_execute($conn, "get_last_post_id", array());
+            $data = pg_fetch_all($result);
+            print_r($data);
+            //sleep(5);
+            //header("Location: ")
+        }
 
         ?>  
         <form action="create_post.php" method="post">
             <input type="hidden" name="forum" value="<?php echo($forum); ?>">
-            <?php echo($forum); ?>
             <input type="text" name="title" placeholder="Post title"><br>
             <textarea name="post-content" cols="30" rows="10"></textarea><br>
             <input type="submit" value="Post">
