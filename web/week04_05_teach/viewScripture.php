@@ -30,7 +30,7 @@
         $last_inserted_scripture_id = pg_fetch_all($result)[0]["scripture_id"];
 
         $result = pg_prepare($conn, "insert_scrip_topic", "
-        INSERT INTO scripture-topic
+        INSERT INTO scripture_topic
             (scripture_id, topic_id)
         VALUES
             ($1, $2)
