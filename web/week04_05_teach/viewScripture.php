@@ -34,7 +34,7 @@
         VALUES
             ($1, $2)
         ");
-        foreach ($topic as $key => $value)
+        foreach ($topic_array as $key => $value)
         {
             pg_execute($conn, "insert-scrip-topic", array($last_inserted_scripture_id, $value));
         }
