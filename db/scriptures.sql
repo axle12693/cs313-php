@@ -37,3 +37,4 @@ CREATE TABLE Scripture_Topic (
     scripture_id        SERIAL  REFERENCES  Scripture(scripture_id),
     topic_id            SERIAL  REFERENCES  Topic(topic_id)
 );
+
