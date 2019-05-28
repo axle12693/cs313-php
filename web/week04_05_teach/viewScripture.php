@@ -17,6 +17,7 @@
         $content = htmlspecialchars($_POST["content"]);
 
         $topic_array = array_map("htmlspecialchars", $_POST["topic"]);
+        print_r($topic_array);
 
         $result = pg_prepare($conn, "insert_scripture", "
         INSERT INTO scripture
@@ -36,6 +37,7 @@
         ");
         foreach ($topic_array as $key => $value)
         {
+            echo($value);
             pg_execute($conn, "insert-scrip-topic", array($last_inserted_scripture_id, $value));
         }
     }
