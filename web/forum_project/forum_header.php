@@ -36,7 +36,7 @@
             {
               ?>
               <form class="form-inline my-2 my-lg-0" action="create_post.php" method="get">
-                <input type="hidden" name="forum" value="<?php echo($current_forum); ?>">
+                <input type="hidden" name="forum" value="<?php echo($current_forum["id"]); ?>">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create Post</button>
               </form>
               <?php
