@@ -41,8 +41,8 @@ require("forum_functions.php");
                 <div class="card-body">
                     <form action="create_post.php" method="post">
                         <input type="hidden" name="forum" value="<?php echo($forum); ?>">
-                        <input type="text" name="title" placeholder="Post title"><br>
-                        <textarea class="form=control" name="post-content" cols="30" rows="10"></textarea><br>
+                        <input class="form-control" type="text" name="title" placeholder="Post title"><br>
+                        <textarea class="form-control" name="post-content" cols="30" rows="10"></textarea><br>
                         <input type="submit" value="Post">
                     </form>
                 </div>
