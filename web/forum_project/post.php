@@ -17,6 +17,11 @@ require("forum_functions.php");
         require("forum_header.php");
         add_post_and_comments($post);
         ?>  
+        <form action="create_reply.php" method="post">
+            <input type="hidden" name="post_id" value="<?php echo($post); ?>">
+            <textarea name="reply" cols="30" rows="10"></textarea>
+            <input type="submit" value="Reply">
+        </form>
     </div>
 </body>
 </html>
