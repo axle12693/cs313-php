@@ -19,7 +19,7 @@ require("forum_functions.php");
         ?>  
         <form action="create_reply.php" method="post">
             <input type="hidden" name="post_id" value="<?php echo($post); ?>">
-            <textarea name="reply" cols="30" rows="10"></textarea>
+            <textarea class="form-control" name="reply" cols="30" rows="10"></textarea>
             <input type="submit" value="Reply">
         </form>
     </div>
