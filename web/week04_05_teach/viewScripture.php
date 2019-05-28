@@ -35,10 +35,18 @@
         VALUES
             ($1, $2)
         ");
+
+        
+        $result = pg_prepare($conn, "get_topic_id", "
+        SELECT topic_id FROM Topic WHERE topic_name = $1
+        ");
+
         foreach ($topic_array as $key => $value)
         {
+            $result = pg_execute($conn, "get_topic_id", array($value));
+            $topic_id = pg_fetch_all($result)[0]["topic_id"];
             echo($last_inserted_scripture_id);
-            pg_execute($conn, "insert_scrip_topic", array($last_inserted_scripture_id, $value));
+            pg_execute($conn, "insert_scrip_topic", array($last_inserted_scripture_id, $topic_id));
         }
     }
     $result = pg_prepare($conn, "get_all_scriptures", "
