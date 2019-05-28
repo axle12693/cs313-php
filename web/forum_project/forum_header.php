@@ -32,6 +32,14 @@
         if (isset($current_forum))
         {
             echo("<li class=\"nav-item\"><a class=\"nav-link\" href=\"forum.php?forum=" . $current_forum["id"] . "\"> &gt;&gt; " . $current_forum["title"] . "</a></li>");
+            if (is_logged_in())
+            {
+              ?>
+              <form class="form-inline my-2 my-lg-0" action="create_post.php" method="post">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="create_post">Create Post</button>
+              </form>
+              <?php
+            }
         }
     }
 
