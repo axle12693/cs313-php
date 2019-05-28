@@ -37,7 +37,7 @@ require("forum_functions.php");
 
         ?>  
         <div class="container">
-            <div class="card">
+            <div class="card bg-secondary text-white">
                 <div class="card-body">
                     <form action="create_post.php" method="post">
                         <input type="hidden" name="forum" value="<?php echo($forum); ?>">

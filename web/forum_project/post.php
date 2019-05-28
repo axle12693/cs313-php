@@ -18,7 +18,7 @@ require("forum_functions.php");
         add_post_and_comments($post);
         ?>  
         <div class="container">
-            <div class="card">
+            <div class="card bg-secondary text-white">
                 <div class="card-body">
                     <form action="create_reply.php" method="post">
                         <input type="hidden" name="post_id" value="<?php echo($post); ?>">
