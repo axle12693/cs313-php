@@ -28,9 +28,9 @@ CREATE TABLE Topic (
 INSERT INTO Topic 
     (topic_name)
 VALUES
-    ("Faith"),
-    ("Sacrifice"),
-    ("Charity");
+    ('Faith'),
+    ('Sacrifice'),
+    ('Charity');
 
 CREATE TABLE Scripture_Topic (
     scripture_topic_id  SERIAL  PRIMARY KEY,

@@ -11,7 +11,7 @@
         Book: <input type="text" name="book"><br>
         Chapter: <input type="text" name="chapter"><br>
         Verse:  <input type="text" name="verse"><br>
-        Content: <textarea></textarea>
+        Content: <textarea></textarea><br>
         <?php
             $conn = pg_connect(getenv("DATABASE_URL"));
             $result = pg_prepare($conn, "get_scripture_topics", "
@@ -21,7 +21,7 @@
             $data = pg_fetch_all($result);
             foreach ($data as $key => $value)
             {
-                echo("<input type='checkbox' name='topic[]' value='" . $value["topic_name"] . "'><br>");
+                echo("<input type='checkbox' name='topic[]' value='" . $value["topic_name"] . "'>" . $value["topic_name"] . "<br>");
             }
         ?>
         <input type="submit">
