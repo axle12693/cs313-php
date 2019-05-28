@@ -13,7 +13,7 @@ require("forum_functions.php");
         $forum = htmlspecialchars($_REQUEST["forum"]);
         setup_current_forum_nav($forum);
         require("forum_header.php");
-        if (isset($_POST["title"]) && isset($_POST["post-content"]) and is_logged_in())
+        if (isset($_POST["title"]) && isset($_POST["post-content"]) && is_logged_in())
         {
             $conn = pg_connect(getenv("DATABASE_URL"));
             $result = pg_prepare($conn, "create_post", "
