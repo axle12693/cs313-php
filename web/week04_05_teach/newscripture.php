@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="newscripture.php" method="post">
+    <form action="viewScripture.php" method="post">
         Book: <input type="text" name="book"><br>
         Chapter: <input type="text" name="chapter"><br>
         Verse:  <input type="text" name="verse"><br>
