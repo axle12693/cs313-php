@@ -29,7 +29,7 @@
         $result = pg_execute($conn, "insert_scripture", array($book, $chapter, $verse, $content));
         $last_inserted_scripture_id = pg_fetch_all($result)[0]["scripture_id"];
 
-        $result = pg_prepare($conn, "insert-scrip-topic", "
+        $result = pg_prepare($conn, "insert_scrip_topic", "
         INSERT INTO scripture-topic
             (scripture_id, topic_id)
         VALUES
@@ -38,7 +38,7 @@
         foreach ($topic_array as $key => $value)
         {
             echo($value);
-            pg_execute($conn, "insert-scrip-topic", array($last_inserted_scripture_id, $value));
+            pg_execute($conn, "insert_scrip_topic", array($last_inserted_scripture_id, $value));
         }
     }
     $result = pg_prepare($conn, "get_all_scriptures", "
