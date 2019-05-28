@@ -35,8 +35,9 @@
             if (is_logged_in())
             {
               ?>
-              <form class="form-inline my-2 my-lg-0" action="create_post.php" method="post">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="create_post">Create Post</button>
+              <form class="form-inline my-2 my-lg-0" action="create_post.php" method="get">
+                <input type="hidden" name="forum">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create Post</button>
               </form>
               <?php
             }
