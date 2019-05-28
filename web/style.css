@@ -8,8 +8,6 @@
 {
     width: 60%;
     margin: auto;
-    padding-left: 0px;
-    padding-right: 0px;
 }
 
 #home_ML_Image
@@ -37,4 +35,10 @@ div.alink:hover
     cursor: pointer;
     color: #DDDDDD;
     text-decoration: underline;
+}
+
+div.container 
+{
+    padding-left: 0px;
+    padding-right: 0px;
 }
