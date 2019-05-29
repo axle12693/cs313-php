@@ -11,11 +11,13 @@ require("forum_functions.php");
     <?php
     if (isset($_POST["oldPass"]))
     {
+        echo("It is set.");
         $oldPass = htmlspecialchars($_POST["oldPass"]);
         $newPass1 = htmlspecialchars($_POST["newPass1"]);
         $newPass2 = htmlspecialchars($_POST["newPass2"]);
         if (verify_password(get_logged_in_username(), $oldPass) && $newPass1 == $newPass2)
         {
+            echo("Verified, and new1 = new2");
             $pw_hash = password_hash($newPass1, PASSWORD_BCRYPT);
             $result = pg_prepare($conn, "change_pw", "
             UPDATE  App_User
