@@ -200,7 +200,7 @@ function try_login($uname, $pword)
     //     return false;
     // }
     // else
-    if verify_password($uname, $pword)
+    if (verify_password($uname, $pword))
     {
         $data = $data[0];
         $_SESSION["logged_in_username"] = $data["username"];
@@ -208,5 +208,6 @@ function try_login($uname, $pword)
         $_SESSION["logged_in_user_id"] = $data["app_user_id"];
         return true;
     }
+    return false;
 }
 ?>
