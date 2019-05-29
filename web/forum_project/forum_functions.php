@@ -163,6 +163,7 @@ function verify_password($uname, $pword)
     ");
     $result = pg_execute($conn, "try_login", array($uname));
     $data = pg_fetch_all($result);
+    
     if (empty($data))
     {
         return false;
@@ -175,7 +176,8 @@ function verify_password($uname, $pword)
     }
     else
     {
-        return true;
+        $data = $data[0];
+        return $data;
     }
 }
 
@@ -200,9 +202,9 @@ function try_login($uname, $pword)
     //     return false;
     // }
     // else
-    if (verify_password($uname, $pword))
+    $data = verify_password($uname, $pword);
+    if ($data)
     {
-        $data = $data[0];
         $_SESSION["logged_in_username"] = $data["username"];
         $_SESSION["is_logged_in"] = true;
         $_SESSION["logged_in_user_id"] = $data["app_user_id"];
