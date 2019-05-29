@@ -90,7 +90,7 @@ CREATE TABLE Post_Comment (
     date_last_updated       TIMESTAMP 
 );
 
-CREATE SEQUENCE s_Post_Comment START 1;
+CREATE SEQUENCE s_Post_Comment START 1;x
 
 INSERT INTO Post_Comment
     (post_id, app_user_id, post_comment_content, date_last_updated)

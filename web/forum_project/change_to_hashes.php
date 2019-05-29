@@ -11,7 +11,6 @@ foreach ($pw_array as $key => $value)
 {
     $pw = $value["pw"];
     $pw_hash = password_hash($pw, PASSWORD_BCRYPT);
-    echo(strlen($pw_hash));
     $result = pg_prepare($conn, "change_to_hashes2", "
     UPDATE  App_User
     SET     pw_hash = $1
