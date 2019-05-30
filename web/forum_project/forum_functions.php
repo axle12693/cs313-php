@@ -14,7 +14,7 @@ function add_forum_categories()
     foreach ($category_rows as $key => $value)
     {
         echo("<div class=\"card bg-primary text-white\">");
-        echo("<div class=\"card-header\">" . $value["title"] . "</div>");
+        echo("<div class=\"card-header\"><h3>" . $value["title"] . "</h3></div>");
         $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
         $result = pg_execute($conn, "get_forums", array($value["forum_category_id"]));
         $forum_rows = pg_fetch_all($result);
