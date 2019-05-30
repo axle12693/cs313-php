@@ -97,7 +97,7 @@ function add_post_and_comments($post_id)
     {
         echo("<div class=\"card bg-primary text-white\">");
         echo("<div class=\"card-body\">");
-        echo($value["post_comment_content"] . "<br><br>");
+        echo($value["post_comment_content"] . "<br><br><hr>");
         echo($value["username"] . " - " . $value["date_last_updated"]);
         echo("</div>");
         echo("</div>");
