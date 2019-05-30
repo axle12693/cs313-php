@@ -15,7 +15,7 @@ require("forum_functions.php");
         $oldPass = htmlspecialchars($_POST["oldPass"]);
         $newPass1 = htmlspecialchars($_POST["newPass1"]);
         $newPass2 = htmlspecialchars($_POST["newPass2"]);
-        if (verify_password(get_logged_in_username(), $oldPass) && $newPass1 == $newPass2)
+        if (verify_password(get_logged_in_username(), $oldPass) && ($newPass1 == $newPass2) && $newPass1 != "")
         {
             // echo("Verified, and new1 = new2");
             // echo("User id is: " . get_logged_in_user_id());
@@ -28,6 +28,10 @@ require("forum_functions.php");
             ");
             $result = pg_execute($conn, "change_pw", array($pw_hash, get_logged_in_user_id()));
             header("Location: index.php");
+        }
+        else
+        {
+            echo("Password change failed! Please try again.")
         }
     }
     ?>

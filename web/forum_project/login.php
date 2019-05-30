@@ -31,13 +31,15 @@ require("forum_functions.php");
             }
             else
             {
-                if ($pass1 == $pass2)
+                if (($pass1 == $pass2) && $pass1 != "")
                 {
                     add_user($uname, $pass1);
+                    header("Location: index.php");
+                    die;
                 }
                 else
                 {
-                    echo("Those passwords don't match!");
+                    echo("Those passwords don't match, or are empty!");
                 }
             }
         }
