@@ -30,33 +30,33 @@ require("forum_functions.php");
             Please sign up below:
             <form action="login.php" method="post">
                 <div class="row">
-                    <div class="col-sm-3">
-                        <label for="uname">Username</label><br>
+                    <div class="col-sm-2">
+                        <label for="uname">Username</label>
                     </div>
                     <div class="col-sm-3">
-                        <input class="form-control" type="text" name="uname" id="uname"><br>
+                        <input class="form-control" type="text" name="uname" id="uname">
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4"></div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-3">
-                        <label for="pass1">Password</label><br>
+                    <div class="col-sm-2">
+                        <label for="pass1">Password</label>
                     </div>
                     <div class="col-sm-3">
                         <input class="form-control" type="password" name="pass1" id="pass1">
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4"></div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <label for="pass2">Confirm Password</label>
                     </div>
                     <div class="col-sm-3">
                         <input class="form-control" type="password" name="pass2" id="pass2">
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4"></div>
                 </div>
                 <input type="submit" value="Submit">
             </form>
