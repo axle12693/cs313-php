@@ -59,10 +59,10 @@ require("forum_functions.php");
                     <div class="col-sm-4"></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-5">
                         <input class="form-control" type="submit" value="Submit">
                     </div>
+                    <div class="col-sm-4"></div>
                 </div>
             </form>
             <?php
