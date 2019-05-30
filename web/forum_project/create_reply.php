@@ -19,13 +19,13 @@ require("forum_functions.php");
             $conn = pg_connect(getenv("DATABASE_URL"));
             $result = pg_prepare($conn, "create_reply", "
             INSERT INTO Post_Comment
-            (post_comment_id, post_id, app_user_id, post_comment_content, date_last_updated)
+            (post_id, app_user_id, post_comment_content, date_last_updated)
             VALUES
-            (nextval('s_Post_Comment'), $1, $2, $3, current_timestamp)
+            ($1, $2, $3, current_timestamp)
             ");
             $result = pg_execute($conn, "create_reply", array($post_id, get_logged_in_user_id(), $reply));
 
-            sleep(5);
+            sleep(1);
             header("Location: post.php?post=$post_id");
         }
         ?>  

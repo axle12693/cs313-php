@@ -31,7 +31,7 @@ require("forum_functions.php");
             ");
             $result = pg_execute($conn, "get_last_post_id", array());
             $data = pg_fetch_all($result);
-            sleep(5);
+            sleep(1);
             header("Location: post.php?post=" . $data[0]["currval"]);
         }
 
