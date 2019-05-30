@@ -14,7 +14,7 @@ function add_forum_categories()
     foreach ($category_rows as $key => $value)
     {
         echo("<div class=\"card bg-primary text-white\">");
-        echo("<div class=\"card-header\"><h3>" . $value["title"] . "</h3></div>");
+        echo("<div class=\"card-header\"><h4>" . $value["title"] . "</h4></div>");
         $result = pg_prepare($conn, "get_forums", 'SELECT * FROM Forum WHERE forum_category_id = $1');
         $result = pg_execute($conn, "get_forums", array($value["forum_category_id"]));
         $forum_rows = pg_fetch_all($result);
@@ -90,7 +90,7 @@ function add_post_and_comments($post_id)
     echo("<div class=\"container\">");
     echo("<div class=\"card bg-primary text-white\">");
     echo("<div class=\"card-header\">");
-    echo($post["title"] . " - " . $post["username"] . " - " . $post["date_last_updated"]);
+    echo("<h4>" . $post["title"] . "</h4> - " . $post["username"] . " - " . $post["date_last_updated"]);
     echo("</div>");
     echo("<div class=\"card-body\">");
     echo($post["post_content"]);
