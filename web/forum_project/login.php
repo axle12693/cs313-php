@@ -27,7 +27,7 @@ require("forum_functions.php");
         else 
         {
             ?>
-            Please sign up below:
+            Please sign up below:<br>
             <form action="login.php" method="post">
                 <div class="row">
                     <div class="col-sm-2">
@@ -58,7 +58,12 @@ require("forum_functions.php");
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
-                <input type="submit" value="Submit">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="7">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
             </form>
             <?php
         }
