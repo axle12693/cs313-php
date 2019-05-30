@@ -60,8 +60,8 @@ require("forum_functions.php");
                 </div>
                 <div class="row">
                     <div class="col-sm-2"></div>
-                    <div class="7">
-                        <input type="submit" value="Submit">
+                    <div class="col-sm-7">
+                        <input class="form-control" type="submit" value="Submit">
                     </div>
                 </div>
             </form>
