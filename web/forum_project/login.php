@@ -29,7 +29,9 @@ require("forum_functions.php");
             ?>
             <form action="login.php" method="post">
                 <div class="row">
-                    Please sign up below:
+                    <div class="col">
+                        Please sign up below:
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-2">
