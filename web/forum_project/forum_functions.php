@@ -90,7 +90,7 @@ function add_post_and_comments($post_id)
     echo("<div class=\"container\">");
     echo("<div class=\"card bg-primary text-white\">");
     echo("<div class=\"card-header\">");
-    echo("<h4>" . $post["title"] . "</h4>" . $post["post_content"] . "<br>" . $post["username"] . " - " . $post["date_last_updated"]);
+    echo("<h4>" . $post["title"] . "</h4>" . $post["post_content"] . "<br><br>" . $post["username"] . " - " . $post["date_last_updated"]);
     echo("</div>");
     echo("</div>");
     foreach ($comment_array as $key => $value)
