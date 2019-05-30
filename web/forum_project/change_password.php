@@ -18,7 +18,7 @@ require("forum_functions.php");
         if (verify_password(get_logged_in_username(), $oldPass) && $newPass1 == $newPass2)
         {
             echo("Verified, and new1 = new2");
-            echo("User id is: " . get_logged_in_useer_id());
+            echo("User id is: " . get_logged_in_user_id());
             $pw_hash = password_hash($newPass1, PASSWORD_BCRYPT);
             $result = pg_prepare($conn, "change_pw", "
             UPDATE  App_User
