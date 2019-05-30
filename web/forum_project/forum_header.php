@@ -16,7 +16,7 @@
           <input type="hidden" value="<?php if (isset($_POST['redirect_url'])){echo(htmlspecialchars($_POST['redirect_url']));} else {echo($_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']);} ?>" name="redirect_url">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="logout">Log out</button>
         </form>
-        <a href="change_password.php">Change password</a>
+        <a class="nav-link" href="change_password.php">Change password</a>
       <?php
     } 
     ?>
