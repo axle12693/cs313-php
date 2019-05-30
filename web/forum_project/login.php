@@ -20,6 +20,27 @@ require("forum_functions.php");
             header("Location: " . $redirect_url);
             die();
         }
+        if (isset($_POST["pass1"]))
+        {
+            $uname = htmlspecialchars($_POST["uname"]);
+            $pass1 = htmlspecialchars($_POST["pass1"]);
+            $pass2 = htmlspecialchars($_POST["pass2"]);
+            if (username_is_taken($uname))
+            {
+                echo("That username is taken! Please try again.");
+            }
+            else
+            {
+                if ($pass1 == $pass2)
+                {
+                    add_user($uname, $pass1);
+                }
+                else
+                {
+                    echo("Those passwords don't match!");
+                }
+            }
+        }
         if (try_login($uname, $pword)) {
             header("Location: " . $redirect_url);
             die();

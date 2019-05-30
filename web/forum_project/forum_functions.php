@@ -212,4 +212,36 @@ function try_login($uname, $pword)
     }
     return false;
 }
+
+function username_is_taken($uname)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "username_already_exists", "
+    SELECT      *
+    FROM        App_User
+    WHERE       username = $1
+    ");
+    $result = pg_execute($conn, "username_already_exists", array($uname));
+    $data = pg_fetch_all($result);
+    if (empty($data))
+    {
+        return false;
+    }
+    return true;
+}
+
+function add_user($uname, $pass)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $pw_hash = password_hash($pw, PASSWORD_BCRYPT);
+    $result = pg_prepare($conn, "add_user", "
+    INSERT INTO App_User
+    (user_type_id, username, pw_hash)
+    VALUES
+    (3, $1, $2)
+    ");
+    $result = pg_execute($conn, "add_user", array($uname, $pw_hash));
+    $data = pg_fetch_all($result);
+}
 ?>
+
