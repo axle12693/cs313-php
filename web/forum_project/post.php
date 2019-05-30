@@ -16,6 +16,8 @@ require("forum_functions.php");
         setup_current_forum_nav($forum_id);
         require("forum_header.php");
         add_post_and_comments($post);
+        if (is_logged_in())
+        {
         ?>  
         <div class="container">
             <div class="card bg-secondary text-white">
@@ -28,6 +30,7 @@ require("forum_functions.php");
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
 </body>
 </html>
