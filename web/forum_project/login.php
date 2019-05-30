@@ -26,7 +26,15 @@ require("forum_functions.php");
         }
         else 
         {
-            echo("Login failed! This will be implemented later.");
+            ?>
+            Please sign up below:
+            <form action="login.php" method="post">
+                <label for="uname">Username</label><input type="text" name="uname" id="uname"><br>
+                <label for="pass1">Password</label><input type="password" name="pass1" id="pass1"><br>
+                <label for="pass2">Confirm Password</label><input type="password" name="pass2" id="pass2"><br>
+                <input type="submit" value="Submit">
+            </form>
+            <?php
         }
          ?>
     </div>
