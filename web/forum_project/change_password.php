@@ -11,7 +11,7 @@ require("forum_functions.php");
     <?php
     if (isset($_POST["oldPass"]))
     {
-        echo("It is set.");
+        // echo("It is set.");
         $oldPass = htmlspecialchars($_POST["oldPass"]);
         $newPass1 = htmlspecialchars($_POST["newPass1"]);
         $newPass2 = htmlspecialchars($_POST["newPass2"]);
@@ -27,6 +27,7 @@ require("forum_functions.php");
             WHERE   app_user_id = $2
             ");
             $result = pg_execute($conn, "change_pw", array($pw_hash, get_logged_in_user_id()));
+            header("Location: index.php");
         }
     }
     ?>
