@@ -75,12 +75,12 @@ function add_post_and_comments($post_id)
     $post = $post_array[0];
 
     $result = pg_prepare($conn, "get_comments", "
-    SELECT      pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date, au.username
+    SELECT      pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date, au.username, pc.date_last_updated AS dlu
     FROM        Post p INNER JOIN Post_Comment pc
     ON          p.post_id = pc.post_id INNER JOIN App_User au
     ON          pc.app_user_id = au.app_user_id
     WHERE       pc.post_id = $1
-    ORDER BY    pc.date_last_updated::date
+    ORDER BY    dlu
     ");
     $result = pg_execute($conn, "get_comments", array($post_id));
     $comment_array = pg_fetch_all($result);
