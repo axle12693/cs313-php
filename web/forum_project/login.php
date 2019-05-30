@@ -29,16 +29,17 @@ require("forum_functions.php");
             ?>
             Please sign up below:
             <form action="login.php" method="post">
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                     <label for="uname">Username</label><br>
                     <label for="pass1">Password</label><br>
                     <label for="pass2">Confirm Password</label>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-sm-3">
                     <input class="form-control" type="text" name="uname" id="uname"><br>
                     <input class="form-control" type="password" name="pass1" id="pass1"><br>
                     <input class="form-control" type="password" name="pass2" id="pass2"><br>
                 </div>
+                <div class="col-sm-3"></div>
                 <input type="submit" value="Submit">
             </form>
             <?php
