@@ -61,6 +61,16 @@ function add_forum_posts($forum_id)
     echo("</div>");
 }
 
+function is_allowed_to_edit_comment($comment_id)
+{
+
+}
+
+function is_allowed_to_delete_comment($comment_id)
+{
+
+}
+
 function add_post_and_comments($post_id) 
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
@@ -75,7 +85,7 @@ function add_post_and_comments($post_id)
     $post = $post_array[0];
 
     $result = pg_prepare($conn, "get_comments", "
-    SELECT      pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date, au.username, pc.date_last_updated AS dlu
+    SELECT      pc.post_comment_id, pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date, au.username, pc.date_last_updated AS dlu
     FROM        Post p INNER JOIN Post_Comment pc
     ON          p.post_id = pc.post_id INNER JOIN App_User au
     ON          pc.app_user_id = au.app_user_id
@@ -99,6 +109,18 @@ function add_post_and_comments($post_id)
         echo("<div class=\"card-body\">");
         echo($value["post_comment_content"] . "<br><br><hr>");
         echo($value["username"] . " - " . $value["date_last_updated"]);
+
+        if (is_logged_in())
+        {
+            if (is_allowed_to_edit_comment($value["post_comment_id"]))
+            {
+                echo(" - Edit")
+            }
+            if (is_allowed_to_delete_comment($value["post_comment_id"]))
+            {
+                echo(" - Delete");
+            }
+        }
         echo("</div>");
         echo("</div>");
     }
