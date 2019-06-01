@@ -114,7 +114,7 @@ function add_post_and_comments($post_id)
         {
             if (is_allowed_to_edit_comment($value["post_comment_id"]))
             {
-                echo(" - Edit")
+                echo(" - Edit");
             }
             if (is_allowed_to_delete_comment($value["post_comment_id"]))
             {
