@@ -95,7 +95,7 @@ function is_allowed_to_delete_post($post_id)
 {
     $user_type_id = get_logged_in_user_type_id();
     $logged_in_user_id = get_logged_in_user_id();
-    if ($user_type_id == 1 || $user_type_id == 2 ||  (get_post_creator($post_id)["app_user_id"] == get_logged_in_user_id() && $logged_in_user_id))
+    if ($user_type_id == 1 || $user_type_id == 2 ||  ((get_post_creator($post_id)["app_user_id"] == $logged_in_user_id) && $logged_in_user_id))
     {
         return true;
     }
