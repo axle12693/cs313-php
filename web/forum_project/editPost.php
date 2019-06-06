@@ -39,8 +39,8 @@ require("forum_functions.php");
         }
         else
         {
-            header("Location: index.php");
-            die();
+            //header("Location: index.php");
+            //die();
         }
         ?>
     </div>
