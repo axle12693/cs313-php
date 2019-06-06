@@ -85,7 +85,6 @@ function is_allowed_to_edit_post($post_id)
 {
     $logged_in_user_id = get_logged_in_user_id();
     $creator_is_logged_in_user = get_post_creator($post_id)["app_user_id"] == $logged_in_user_id;
-    echo($creator_is_logged_in_user . " . " . $logged_in_user_id);
     if ($creator_is_logged_in_user && $logged_in_user_id)
     {
         return true;
@@ -98,7 +97,7 @@ function is_allowed_to_delete_post($post_id)
     $user_type_id = get_logged_in_user_type_id();
     $logged_in_user_id = get_logged_in_user_id();
     $creator_is_logged_in_user = get_post_creator($post_id)["app_user_id"] == $logged_in_user_id;
-    if ($user_type_id == 1 || $user_type_id == 2 ||  (($creator_is_logged_in_user) && $logged_in_user_id))
+    if ($user_type_id == 1 || $user_type_id == 2 ||  ($creator_is_logged_in_user && $logged_in_user_id))
     {
         return true;
     }
@@ -157,11 +156,11 @@ function add_post_and_comments($post_id)
         {
             if (is_allowed_to_edit_comment($value["post_comment_id"]))
             {
-                echo(" - Edit");
+                echo(" - <button onclick=\"window.location.href = 'editComment.php?comment_id=" . $comment_id . "';\">Edit</button>");
             }
             if (is_allowed_to_delete_comment($value["post_comment_id"]))
             {
-                echo(" - Delete");
+                echo(" - <button onclick=\"window.location.href = 'deleteComment.php?comment_id=" . $comment_id . "';\">Delete</button>");
             }
         }
         echo("</div>");
