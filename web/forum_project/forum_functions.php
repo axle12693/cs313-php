@@ -108,7 +108,7 @@ function add_post_and_comments($post_id)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "get_post", "
-    SELECT      p.post_id, p.title, p.post_content, p.date_last_updated::date, au.username
+    SELECT      p.post_id, p.title, p.post_content, p.date_last_updated::date, au.username, p.deleted
     FROM        Post p INNER JOIN App_User au 
     ON          p.app_user_id = au.app_user_id
     WHERE       p.post_id = $1
@@ -116,6 +116,12 @@ function add_post_and_comments($post_id)
     $result = pg_execute($conn, "get_post", array($post_id));
     $post_array = pg_fetch_all($result);
     $post = $post_array[0];
+
+    if ($post["deleted"])
+    {
+        header("Location: index.php");
+        die();
+    }
 
     $result = pg_prepare($conn, "get_comments", "
     SELECT      pc.post_comment_id, pc.post_comment_content, pc.app_user_id, pc.date_last_updated::date, au.username, pc.date_last_updated AS dlu
@@ -133,7 +139,7 @@ function add_post_and_comments($post_id)
     echo("<div class=\"container\">");
     echo("<div class=\"card bg-success text-white\">");
     echo("<div class=\"card-header\">");
-    echo("<h4>" . $post["title"] . "</h4>");
+    echo("<h4>" . $post["title"]);
     if (is_allowed_to_edit_post($post_id))
     {
         echo(" - <button onclick=\"window.location.href = 'editPost.php?post_id=" . $post_id . "';\">Edit</button>");
@@ -142,7 +148,7 @@ function add_post_and_comments($post_id)
     {
         echo(" - <button onclick=\"window.location.href = 'deletePost.php?post_id=" . $post_id . "';\">Delete</button>");
     }
-    echo("<hr>" . $post["post_content"] . "<br><br><hr>" . $post["username"] . " - " . $post["date_last_updated"]);
+    echo("</h4><hr>" . $post["post_content"] . "<br><br><hr>" . $post["username"] . " - " . $post["date_last_updated"]);
     echo("</div>");
     echo("</div>");
     foreach ($comment_array as $key => $value)
@@ -340,5 +346,32 @@ function get_post_creator($post_id)
     $data = pg_fetch_all($result)[0];
     return $data;
 }
+
+function delete_post($post_id) 
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "delete_post", "
+    UPDATE Post
+    SET deleted = TRUE
+    WHERE post_id = $1
+    ");
+    $result = pg_execute($conn, "delete_post", array($post_id));
+}
+
+function edit_post($post_id, $title, $text) 
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "edit_post", "
+    UPDATE  Post
+    SET     title = $2,
+            post_content = $3,
+            date_last_updated = current_timestamp
+    WHERE   post_id = $1
+    ");
+    $result = pg_execute($conn, "edit_post", array($post_id. $title, $text));
+}
+
 ?>
+
+
 

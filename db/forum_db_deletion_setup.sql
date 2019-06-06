@@ -1,0 +1,13 @@
+ALTER TABLE Post
+ADD COLUMN IF NOT EXISTS Deleted BOOLEAN;
+
+UPDATE  Post 
+SET     Deleted = FALSE
+WHERE   Deleted = NULL;
+
+ALTER TABLE Post_Comment
+ADD COLUMN IF NOT EXISTS Deleted BOOLEAN;
+
+UPDATE  Post_Comment
+SET     Deleted = FALSE
+WHERE   Deleted = NULL;
