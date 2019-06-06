@@ -84,7 +84,8 @@ function is_allowed_to_delete_comment($comment_id)
 function is_allowed_to_edit_post($post_id)
 {
     $logged_in_user_id = get_logged_in_user_id();
-    if ((get_post_creator($post_id)["app_user_id"] == $logged_in_user_id) && $logged_in_user_id)
+    $creator_is_logged_in_user = get_post_creator($post_id)["app_user_id"] == $logged_in_user_id;
+    if ($creator_is_logged_in_user && $logged_in_user_id)
     {
         return true;
     }
