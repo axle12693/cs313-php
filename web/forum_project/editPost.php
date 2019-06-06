@@ -15,12 +15,7 @@ require("forum_functions.php");
             die();
         }
         $post_id = htmlspecialchars($_GET["post_id"]);
-        if (!isset($_POST["title"]))
-        {
-            header("Location: index.php");
-            die();
-        }
-        else
+        if (isset($_POST["title"]))
         {
             $title = htmlspecialchars($_POST["title"]);
             $text = htmlspecialchars($_POST["text"]);
