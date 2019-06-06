@@ -85,6 +85,7 @@ function is_allowed_to_edit_post($post_id)
 {
     $logged_in_user_id = get_logged_in_user_id();
     $creator_is_logged_in_user = get_post_creator($post_id)["app_user_id"] == $logged_in_user_id;
+    echo($logged_in_user . " . " . $creator_is_logged_in_user);
     if ($creator_is_logged_in_user && $logged_in_user_id)
     {
         return true;
