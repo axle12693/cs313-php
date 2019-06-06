@@ -133,11 +133,11 @@ function add_post_and_comments($post_id)
     echo("<h4>" . $post["title"] . "</h4>");
     if (is_allowed_to_edit_post($post_id))
     {
-        echo(" - <a href='editPost.php?post_id=" . $post_id . "'>Edit</a>");
+        echo(" - <button onclick=\"window.location.href = 'editPost.php?post_id=" . $post_id . "';\">Edit</button>");
     }
     if (is_allowed_to_delete_post($post_id))
     {
-        echo(" - <a href='deletePost.php?post_id=" . $post_id . "'>Delete</a>");
+        echo(" - <button onclick=\"window.location.href = 'deletePost.php?post_id=" . $post_id . "';\">Delete</button>");
     }
     echo("<hr>" . $post["post_content"] . "<br><br><hr>" . $post["username"] . " - " . $post["date_last_updated"]);
     echo("</div>");
