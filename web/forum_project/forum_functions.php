@@ -63,12 +63,42 @@ function add_forum_posts($forum_id)
 
 function is_allowed_to_edit_comment($comment_id)
 {
-
+    $user_type_id = get_logged_in_user_type_id();
+    if (get_comment_creator($comment_id)["app_user_id"] == get_logged_in_user_id())
+    {
+        return true;
+    }
+    return false;
 }
 
 function is_allowed_to_delete_comment($comment_id)
 {
+    $user_type_id = get_logged_in_user_type_id();
+    if ($user_type_id == 1 || $user_type_id == 2 ||  get_comment_creator($comment_id)["app_user_id"] == get_logged_in_user_id())
+    {
+        return true;
+    }
+    return false;
+}
 
+function is_allowed_to_edit_post($post_id)
+{
+    $user_type_id = get_logged_in_user_type_id();
+    if (get_post_creator($post_id)["app_user_id"] == get_logged_in_user_id())
+    {
+        return true;
+    }
+    return false;
+}
+
+function is_allowed_to_delete_post($post_id)
+{
+    $user_type_id = get_logged_in_user_type_id();
+    if ($user_type_id == 1 || $user_type_id == 2 ||  get_post_creator($post_id)["app_user_id"] == get_logged_in_user_id())
+    {
+        return true;
+    }
+    return false;
 }
 
 function add_post_and_comments($post_id) 
@@ -100,7 +130,17 @@ function add_post_and_comments($post_id)
     echo("<div class=\"container\">");
     echo("<div class=\"card bg-success text-white\">");
     echo("<div class=\"card-header\">");
-    echo("<h4>" . $post["title"] . "</h4><hr>" . $post["post_content"] . "<br><br><hr>" . $post["username"] . " - " . $post["date_last_updated"]);
+    echo("<h4>" . $post["title"] . "</h4>");
+    if (is_allowed_to_edit_post())
+    {
+        echo(" - <a href='editPost.php?post_id=" . $post_id . "'>Edit</a>");
+    }
+    if (is_allowed_to_delete_post())
+    {
+        echo(" - <a href='deletePost.php?post_id=" . $post_id . "'>Delete</a>");
+
+    }
+    echo("<hr>" . $post["post_content"] . "<br><br><hr>" . $post["username"] . " - " . $post["date_last_updated"]);
     echo("</div>");
     echo("</div>");
     foreach ($comment_array as $key => $value)
@@ -172,12 +212,17 @@ function get_logged_in_username() {return $_SESSION["logged_in_username"];}
 
 function get_logged_in_user_id() {return $_SESSION["logged_in_user_id"];}
 
+function get_logged_in_user_type() {return $_SESSION["logged_in_user_type"];}
+
+function get_logged_in_user_type_id() {return $_SESSION["logged_in_user_type_id"];}
+
 function verify_password($uname, $pword)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "try_login", "
-    SELECT      au.pw_hash, au.app_user_id, au.username
-    FROM        App_User au
+    SELECT      au.pw_hash, au.app_user_id, au.username, au.user_type_id, aut.user_type_title
+    FROM        App_User au INNER JOIN App_User_Type aut
+    ON          au.user_type_id = aut.user_type_id
     WHERE       au.username = $1
     ");
     $result = pg_execute($conn, "try_login", array($uname));
@@ -227,6 +272,9 @@ function try_login($uname, $pword)
         $_SESSION["logged_in_username"] = $data["username"];
         $_SESSION["is_logged_in"] = true;
         $_SESSION["logged_in_user_id"] = $data["app_user_id"];
+        $_SESSION["logged_in_user_type"] = $data["user_type_title"];
+        $_SESSION["logged_in_user_type_id"] = $data["user_type_id"];
+
         return true;
     }
     return false;
@@ -261,6 +309,32 @@ function add_user($uname, $pass)
     ");
     $result = pg_execute($conn, "add_user", array($uname, $pw_hash));
     $data = pg_fetch_all($result);
+}
+
+function get_comment_creator($comment_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_comment_creator", "
+    SELECT  au.app_user_id, au.username
+    FROM    App_User au INNER JOIN Post_Comment pc
+    ON      au.app_user_id = pc.app_user_id
+    WHERE   pc.post_comment_id = $1
+    ");
+    $result = pg_execute($conn, "get_comment_creator", array($comment_id));
+    $data = pg_fetch_all($result)[0];
+}
+
+function get_post_creator($post_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_post_creator", "
+    SELECT  au.app_user_id, au.username
+    FROM    App_User au INNER JOIN Post p
+    ON      au.app_user_id = p.app_user_id
+    WHERE   p.post_id = $1
+    ");
+    $result = pg_execute($conn, "get_post_creator", array($post_id));
+    $data = pg_fetch_all($result)[0];
 }
 ?>
 

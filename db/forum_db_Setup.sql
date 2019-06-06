@@ -1,10 +1,3 @@
-DROP TABLE IF EXISTS Post_Comment;
-DROP TABLE IF EXISTS Post;
-DROP TABLE IF EXISTS App_User;
-DROP TABLE IF EXISTS App_User_Type;
-DROP TABLE IF EXISTS Forum;
-DROP TABLE IF EXISTS Forum_Category;
-
 CREATE TABLE App_User_Type (
     user_type_id    SERIAL  PRIMARY KEY,
     user_type_title VARCHAR(30)
