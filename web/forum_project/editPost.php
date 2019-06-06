@@ -11,20 +11,22 @@ require("forum_functions.php");
         $post_id = 0;
         if (!isset($_GET['post_id'])) 
         {
-            $post_id = htmlspecialchars($_GET["post_id"]);
-            if (!isset($_POST["title"]))
-            {
-                header("Location: index.php");
-                die();
-            }
-            else
-            {
-                $title = htmlspecialchars($_POST["title"]);
-                $text = htmlspecialchars($_POST["text"]);
-                edit_post($post_id, $title, $text);
-                header("Location: index.php");
-                die();
-            }
+            header("Location: index.php");
+            die();
+        }
+        $post_id = htmlspecialchars($_GET["post_id"]);
+        if (!isset($_POST["title"]))
+        {
+            header("Location: index.php");
+            die();
+        }
+        else
+        {
+            $title = htmlspecialchars($_POST["title"]);
+            $text = htmlspecialchars($_POST["text"]);
+            edit_post($post_id, $title, $text);
+            header("Location: index.php");
+            die();
         }
         if (is_allowed_to_edit_post($post_id)) 
         {
