@@ -26,7 +26,7 @@ require("forum_functions.php");
         if (is_allowed_to_edit_post($post_id)) 
         {
            ?>
-            <form action="editPost.php" method="post">
+            <form action="editPost.php?post_id=<?php echo $post_id; ?>" method="post">
                 <input type="text" name="title" id="title"><br>
                 <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea><br>
                 <button type="submit">Reply</button>
