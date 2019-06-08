@@ -441,12 +441,12 @@ function get_post_title($post_id)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "get_post_title", "
-    SELECT  post_title
+    SELECT  title
     FROM    Post
     WHERE   post_id = $1
     ");
     $result = pg_execute($conn, "get_post_title", array($post_id));
-    $data = pg_fetch_all($result)[0]["post_title"];
+    $data = pg_fetch_all($result)[0]["title"];
     return $data;
 }
 
