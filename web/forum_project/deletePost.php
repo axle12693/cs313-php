@@ -14,11 +14,12 @@ require("forum_functions.php");
             die();
         }
         $post_id = htmlspecialchars($_GET["post_id"]);
+        $redirect = "forum.php?" . get_forum_from_post($post_id);
         if (is_allowed_to_delete_post($post_id)) 
         {
             delete_post($post_id);
         }
-        header("Location: index.php");
+        header("Location: " . $redirect);
         die();
         ?>
     </div>

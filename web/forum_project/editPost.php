@@ -15,12 +15,13 @@ require("forum_functions.php");
             die();
         }
         $post_id = htmlspecialchars($_GET["post_id"]);
+        $redirect = "post.php?" . $post_id;
         if (isset($_POST["title"]))
         {
             $title = htmlspecialchars($_POST["title"]);
             $text = htmlspecialchars($_POST["text"]);
             edit_post($post_id, $title, $text);
-            header("Location: index.php");
+            header("Location: " . $redirect);
             die();
         }
         if (is_allowed_to_edit_post($post_id)) 
@@ -36,7 +37,7 @@ require("forum_functions.php");
         }
         else
         {
-            header("Location: index.php");
+            header("Location: " . $redirect);
             die();
         }
         ?>

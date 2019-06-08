@@ -67,7 +67,6 @@ function add_forum_posts($forum_id)
 
 function is_allowed_to_edit_comment($comment_id)
 {
-    $user_type_id = get_logged_in_user_type_id();
     if (get_comment_creator($comment_id)["app_user_id"] == get_logged_in_user_id())
     {
         return true;
@@ -89,7 +88,6 @@ function is_allowed_to_edit_post($post_id)
 {
     $logged_in_user_id = get_logged_in_user_id();
     $creator_is_logged_in_user = get_post_creator($post_id)["app_user_id"] == $logged_in_user_id;
-    //echo($logged_in_user_id . " . " . $creator_is_logged_in_user . " . " . get_post_creator($post_id)["app_user_id"]);
     if ($creator_is_logged_in_user && $logged_in_user_id)
     {
         return true;
@@ -217,6 +215,20 @@ function get_forum_from_post($post_id)
     $result = pg_execute($conn, "get_forum_from_post", array($post_id));
     $data = pg_fetch_all($result);
     return $data[0]["forum_id"];
+}
+
+function get_post_from_comment($comment_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_post_from_comment", "
+    SELECT      p.post_id
+    FROM        Post p INNER JOIN Post_Comment pc
+    ON          p.post_id = pc.post_id
+    WHERE       pc.post_comment_id = $1
+    ");
+    $result = pg_execute($conn, "get_post_from_comment", array($comment_id));
+    $data = pg_fetch_all($result);
+    return $data[0]["post_id"];
 }
 
 function is_logged_in() {return isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"];}
