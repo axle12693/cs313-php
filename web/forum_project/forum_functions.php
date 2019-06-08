@@ -376,6 +376,28 @@ function edit_post($post_id, $title, $text)
     $result = pg_execute($conn, "edit_post", array($post_id, $title, $text));
 }
 
+function delete_comment($comment_id) 
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "delete_comment", "
+    UPDATE Post_Comment
+    SET deleted = TRUE
+    WHERE post_comment_id = $1
+    ");
+    $result = pg_execute($conn, "delete_comment", array($comment_id));
+}
+
+function edit_comment($comment_id, $text) 
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "edit_comment", "
+    UPDATE  Post_Comment
+    SET     post_comment_content = $2,
+            date_last_updated = current_timestamp
+    WHERE   post_comment_id = $1
+    ");
+    $result = pg_execute($conn, "edit_comment", array($comment_id, $text));
+}
 ?>
 
 
