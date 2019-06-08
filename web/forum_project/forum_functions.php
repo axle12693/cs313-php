@@ -421,6 +421,7 @@ function get_comment_text($comment_id)
     ");
     $result = pg_execute($conn, "get_comment_text", array($comment_id));
     $data = pg_fetch_all($result)[0]["post_comment_content"];
+    return $data;
 }
 
 function get_post_text($post_id)
@@ -433,6 +434,7 @@ function get_post_text($post_id)
     ");
     $result = pg_execute($conn, "get_post_text", array($post_id));
     $data = pg_fetch_all($result)[0]["post_content"];
+    return $data;
 }
 
 function get_post_title($post_id)
@@ -445,6 +447,7 @@ function get_post_title($post_id)
     ");
     $result = pg_execute($conn, "get_post_title", array($post_id));
     $data = pg_fetch_all($result)[0]["post_title"];
+    return $data;
 }
 
 ?>
