@@ -15,7 +15,7 @@ require("forum_functions.php");
             die();
         }
         $post_id = htmlspecialchars($_GET["post_id"]);
-        $redirect = "post.php?" . $post_id;
+        $redirect = "post.php?post=" . $post_id;
         if (is_allowed_to_edit_post($post_id)) 
         {
             if (isset($_POST["title"]))

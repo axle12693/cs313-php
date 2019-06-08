@@ -15,7 +15,7 @@ require("forum_functions.php");
             die();
         }
         $comment_id = htmlspecialchars($_GET["comment_id"]);
-        $redirect = "post.php?" . get_post_from_comment($comment_id);
+        $redirect = "post.php?post=" . get_post_from_comment($comment_id);
         if (is_allowed_to_edit_comment($comment_id)) 
         {
             if (isset($_POST["text"]))
