@@ -13,7 +13,7 @@ require("forum_functions.php");
             header("Location: index.php");
             die();
         }
-        $post_id = htmlspecialchars($_GET["comment_id"]);
+        $comment_id = htmlspecialchars($_GET["comment_id"]);
         if (is_allowed_to_delete_comment($comment_id)) 
         {
             delete_comment($comment_id);
