@@ -28,8 +28,8 @@ require("forum_functions.php");
             }
             ?>
             <form action="editPost.php?post_id=<?php echo $post_id; ?>" method="post">
-                <input type="text" name="title" id="title"><br>
-                <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea><br>
+                <input type="text" name="title" id="title" value="<?php echo get_post_title($post_id); ?>"><br>
+                <textarea class="form-control" name="text" id="text" cols="30" rows="10"><?php echo get_post_text($post_id); ?></textarea><br>
                 <button type="submit">Reply</button>
                 
             </form>

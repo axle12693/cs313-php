@@ -27,7 +27,7 @@ require("forum_functions.php");
             }
             ?>
             <form action="editComment.php?comment_id=<?php echo $comment_id; ?>" method="post">
-                <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea><br>
+                <textarea class="form-control" name="text" id="text" cols="30" rows="10"><?php echo get_comment_text($comment_id); ?></textarea><br>
                 <button type="submit">Reply</button>
                 
             </form>

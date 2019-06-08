@@ -410,6 +410,43 @@ function edit_comment($comment_id, $text)
     ");
     $result = pg_execute($conn, "edit_comment", array($comment_id, $text));
 }
+
+function get_comment_text($comment_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_comment_text", "
+    SELECT  post_comment_content
+    FROM    Post_Comment
+    WHERE   post_comment_id = $1
+    ");
+    $result = pg_execute($conn, "get_comment_text", array($comment_id));
+    $data = pg_fetch_all($result)[0]["post_comment_content"];
+}
+
+function get_post_text($post_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_post_text", "
+    SELECT  post_content
+    FROM    Post
+    WHERE   post_id = $1
+    ");
+    $result = pg_execute($conn, "get_post_text", array($post_id));
+    $data = pg_fetch_all($result)[0]["post_content"];
+}
+
+function get_post_title($post_id)
+{
+    $conn = pg_connect(getenv("DATABASE_URL"));
+    $result = pg_prepare($conn, "get_post_title", "
+    SELECT  post_title
+    FROM    Post
+    WHERE   post_id = $1
+    ");
+    $result = pg_execute($conn, "get_post_title", array($post_id));
+    $data = pg_fetch_all($result)[0]["post_title"];
+}
+
 ?>
 
 
