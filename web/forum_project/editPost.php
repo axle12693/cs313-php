@@ -16,24 +16,24 @@ require("forum_functions.php");
         }
         $post_id = htmlspecialchars($_GET["post_id"]);
         $redirect = "post.php?" . $post_id;
-        if (isset($_POST["title"]))
-        {
-            $title = htmlspecialchars($_POST["title"]);
-            $text = htmlspecialchars($_POST["text"]);
-            edit_post($post_id, $title, $text);
-            header("Location: " . $redirect);
-            die();
-        }
         if (is_allowed_to_edit_post($post_id)) 
         {
-           ?>
+            if (isset($_POST["title"]))
+            {
+                $title = htmlspecialchars($_POST["title"]);
+                $text = htmlspecialchars($_POST["text"]);
+                edit_post($post_id, $title, $text);
+                header("Location: " . $redirect);
+                die();
+            }
+            ?>
             <form action="editPost.php?post_id=<?php echo $post_id; ?>" method="post">
                 <input type="text" name="title" id="title"><br>
                 <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea><br>
                 <button type="submit">Reply</button>
                 
             </form>
-           <?php
+            <?php
         }
         else
         {
