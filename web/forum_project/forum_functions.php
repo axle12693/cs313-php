@@ -33,7 +33,7 @@ function add_forum_posts($forum_id)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "get_posts", "
-    SELECT      p.post_id, p.title, p.post_content, p.date_last_updated::date, au.username, p.date_last_updated AS dlu
+    SELECT      p.post_id, p.deleted, p.title, p.post_content, p.date_last_updated::date, au.username, p.date_last_updated AS dlu
     FROM        Post p INNER JOIN App_User au 
     ON          p.app_user_id = au.app_user_id
     WHERE       p.forum_id = $1
@@ -45,6 +45,10 @@ function add_forum_posts($forum_id)
     $i = 0;
     foreach ($data_array as $key => $value)
     {
+        if ($value["deleted"])
+        {
+            continue;
+        }
         if ($i % 2 == 0)
         {
             echo("<div class=\"card bg-primary text-white\">");
