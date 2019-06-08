@@ -8,13 +8,13 @@ require("forum_functions.php");
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/header2.php'); ?>
     <div id="body_container">
         <?php
-        $post_id = 0;
+        $comment_id = 0;
         if (!isset($_GET['comment_id'])) 
         {
             header("Location: index.php");
             die();
         }
-        $post_id = htmlspecialchars($_GET["comment_id"]);
+        $comment_id = htmlspecialchars($_GET["comment_id"]);
         if (isset($_POST["text"]))
         {
             $text = htmlspecialchars($_POST["text"]);
