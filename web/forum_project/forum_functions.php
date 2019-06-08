@@ -167,11 +167,11 @@ function add_post_and_comments($post_id)
         {
             if (is_allowed_to_edit_comment($value["post_comment_id"]))
             {
-                echo(" - <button onclick=\"window.location.href = 'editComment.php?comment_id=" . $comment_id . "';\">Edit</button>");
+                echo(" - <button onclick=\"window.location.href = 'editComment.php?comment_id=" . $value["post_comment_id"] . "';\">Edit</button>");
             }
             if (is_allowed_to_delete_comment($value["post_comment_id"]))
             {
-                echo(" - <button onclick=\"window.location.href = 'deleteComment.php?comment_id=" . $comment_id . "';\">Delete</button>");
+                echo(" - <button onclick=\"window.location.href = 'deleteComment.php?comment_id=" . $value["post_comment_id"] . "';\">Delete</button>");
             }
         }
         echo("</div>");
