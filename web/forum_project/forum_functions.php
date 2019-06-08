@@ -166,17 +166,13 @@ function add_post_and_comments($post_id)
         echo("<div class=\"card-body\">");
         echo($value["post_comment_content"] . "<br><br><hr>");
         echo($value["username"] . " - " . $value["date_last_updated"]);
-
-        if (is_logged_in())
+        if (is_allowed_to_edit_comment($value["post_comment_id"]))
         {
-            if (is_allowed_to_edit_comment($value["post_comment_id"]))
-            {
-                echo(" - <button onclick=\"window.location.href = 'editComment.php?comment_id=" . $value["post_comment_id"] . "';\">Edit</button>");
-            }
-            if (is_allowed_to_delete_comment($value["post_comment_id"]))
-            {
-                echo(" - <button onclick=\"window.location.href = 'deleteComment.php?comment_id=" . $value["post_comment_id"] . "';\">Delete</button>");
-            }
+            echo(" - <button onclick=\"window.location.href = 'editComment.php?comment_id=" . $value["post_comment_id"] . "';\">Edit</button>");
+        }
+        if (is_allowed_to_delete_comment($value["post_comment_id"]))
+        {
+            echo(" - <button onclick=\"window.location.href = 'deleteComment.php?comment_id=" . $value["post_comment_id"] . "';\">Delete</button>");
         }
         echo("</div>");
         echo("</div>");
