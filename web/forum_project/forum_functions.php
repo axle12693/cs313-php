@@ -243,6 +243,7 @@ function get_logged_in_user_type_id() {return $_SESSION["logged_in_user_type_id"
 
 function verify_password($uname, $pword)
 {
+    echo("Entered verify_password with uname = $uname and pword = $pword <br>");
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "try_login", "
     SELECT      au.pw_hash, au.app_user_id, au.username, au.user_type_id, aut.user_type_title
@@ -252,6 +253,9 @@ function verify_password($uname, $pword)
     ");
     $result = pg_execute($conn, "try_login", array($uname));
     $data = pg_fetch_all($result);
+
+    echo("Performed SQL query with data = $data<br>");
+
     
     if (empty($data))
     {
