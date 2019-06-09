@@ -41,9 +41,9 @@ require("forum_functions.php");
         require("forum_header.php");
         ?>  
         <form action="change_password.php" method="post">
-            <input type="password" name="oldPass"> <br>
-            <input type="password" name="newPass1"><br>
-            <input type="password" name="newPass2"><br>
+            <label>Old password</label><input type="password" name="oldPass"> <br>
+            <label>New password</label><input type="password" name="newPass1"><br>
+            <label>Confirm</label><input type="password" name="newPass2"><br>
             <input type="submit">
         </form>
     </div>

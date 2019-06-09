@@ -291,7 +291,11 @@ function try_login($uname, $pword)
     //     return false;
     // }
     // else
+    echo("Entered try_login with uname = $uname and pword = $pword <br>");
     $data = verify_password($uname, $pword);
+    echo("Exited verify_password with data = ");
+    print_r($data);
+    echo "<br>";
     if ($data)
     {
         $_SESSION["logged_in_username"] = $data["username"];
