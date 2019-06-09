@@ -254,22 +254,29 @@ function verify_password($uname, $pword)
     $result = pg_execute($conn, "try_login", array($uname));
     $data = pg_fetch_all($result);
 
-    echo("Performed SQL query with data = $data<br>");
+    echo("Performed SQL query with data = ");
+    print_r($data);
+    echo "<br>";
 
     
     if (empty($data))
     {
+        echo("Returning false because data is empty.");
         return false;
     }
     elseif (!password_verify($pword, $data[0]["pw_hash"]))
     {
         // echo(strlen(data[0]["pw_hash"]));
         // echo(data[0]["pw_hash"]);
+        echo("Returning false because password could not be verified.");
         return false;
     }
     else
     {
+        echo("Returning data, with data = ");
         $data = $data[0];
+        print_r($data);
+        echo("<br>");
         return $data;
     }
 }
