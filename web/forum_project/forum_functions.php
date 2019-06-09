@@ -243,7 +243,6 @@ function get_logged_in_user_type_id() {return $_SESSION["logged_in_user_type_id"
 
 function verify_password($uname, $pword)
 {
-    echo("Entered verify_password with uname = $uname and pword = $pword <br>");
     $conn = pg_connect(getenv("DATABASE_URL"));
     $result = pg_prepare($conn, "try_login", "
     SELECT      au.pw_hash, au.app_user_id, au.username, au.user_type_id, aut.user_type_title
@@ -254,59 +253,26 @@ function verify_password($uname, $pword)
     $result = pg_execute($conn, "try_login", array($uname));
     $data = pg_fetch_all($result);
 
-    echo("Performed SQL query with data = ");
-    print_r($data);
-    echo "<br>";
-
     
     if (empty($data))
     {
-        echo("Returning false because data is empty.");
+        echo("Returning false because data is empty.<br>");
         return false;
     }
     elseif (!password_verify($pword, $data[0]["pw_hash"]))
     {
-        // echo(strlen(data[0]["pw_hash"]));
-        // echo(data[0]["pw_hash"]);
-        echo("Returning false because password could not be verified.");
         return false;
     }
     else
     {
-        echo("Returning data, with data = ");
         $data = $data[0];
-        print_r($data);
-        echo("<br>");
         return $data;
     }
 }
 
 function try_login($uname, $pword)
 {
-    // $conn = pg_connect(getenv("DATABASE_URL"));
-    // $result = pg_prepare($conn, "try_login", "
-    // SELECT      au.pw_hash, au.app_user_id, au.username
-    // FROM        App_User au
-    // WHERE       au.username = $1
-    // ");
-    // $result = pg_execute($conn, "try_login", array($uname));
-    // $data = pg_fetch_all($result);
-    // if (empty($data))
-    // {
-    //     return false;
-    // }
-    // elseif (!password_verify($pword, $data[0]["pw_hash"]))
-    // {
-    //     // echo(strlen(data[0]["pw_hash"]));
-    //     // echo(data[0]["pw_hash"]);
-    //     return false;
-    // }
-    // else
-    echo("Entered try_login with uname = $uname and pword = $pword <br>");
     $data = verify_password($uname, $pword);
-    echo("Exited verify_password with data = ");
-    print_r($data);
-    echo "<br>";
     if ($data)
     {
         $_SESSION["logged_in_username"] = $data["username"];
@@ -340,7 +306,7 @@ function username_is_taken($uname)
 function add_user($uname, $pass)
 {
     $conn = pg_connect(getenv("DATABASE_URL"));
-    $pw_hash = password_hash($pw, PASSWORD_BCRYPT);
+    $pw_hash = password_hash($pass, PASSWORD_BCRYPT);
     $result = pg_prepare($conn, "add_user", "
     INSERT INTO App_User
     (user_type_id, username, pw_hash)
