@@ -31,7 +31,7 @@ require("forum_functions.php");
         }
         else
         {
-            echo("Password change failed! Please try again.")
+            echo("Password change failed! Please try again.");
         }
     }
     ?>
